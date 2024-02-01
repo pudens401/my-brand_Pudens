@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" 
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+	 integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+	 crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Login</title>
+</head>
+<body>
+    <header>
+        <h2>Logo</h2>
+    </header>
+    <div class="signup-container">
+        <div class="welcome-text">
+            <h2>Welcome</h2>
+            <p>Start your journey with me</p>
+        </div>
+        <div class="signup-form">
+            <form action="submit" class="auth-forms">
+                <h2>Create Account</h2>
+                <div class="input-field-cont">
+                    <label for="username">Username</label>
+                    <div class="input-field">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="text" id="username"> 
+                    </div>   
+                </div>
+                <div class="input-field-cont">
+                    <label for="email">Email</label>
+                    <div class="input-field">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="email"> 
+                    </div>   
+                </div>
+                <div class="input-field-cont">
+                    <label for="password">Password</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password"> 
+                    </div>   
+                </div>
+                <div class="input-field-cont">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="confirm-password"> 
+                    </div>   
+                </div>
+                
+                <button id="submit-btn">Submit</button>
+                <p class="login-from-signup">Already registered?<a href="#">Log in</a></p>
+
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
