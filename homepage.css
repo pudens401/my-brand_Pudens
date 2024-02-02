@@ -1,0 +1,111 @@
+body{                         /*032426  93FF4B*/
+    margin: 0px;
+    padding: 0px;
+    background-color: #032426;
+}
+
+header{
+    padding: 0% 5% 0% 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    color:#fff;
+    background-color:#032426 ;
+}
+.navlinks{
+    display: flex;
+    justify-content: space-between;
+}
+.navlinks a{
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+
+}
+.navlinks a:hover{
+    color:#93FF4B;
+}
+.navlinks #home{
+    text-decoration: overline;
+}
+#login-btn{
+    font-size: 15px;
+    padding: 10px;
+    background-color: #93ff4bdd;
+    color: #032426;
+    border: none;
+}
+#login-btn:hover{
+    background-color: #93FF4B;
+}
+
+.landing-page{
+    display: flex;
+    justify-content: center;
+}
+.intro-text{
+    color: #fff;
+    padding: 3% 1% 1% 10%;
+    font-size: 20px ;
+}
+h3 #hello{
+    font-size: 18px;
+}
+h3 #pudens{
+    color: #93FF4B;
+}
+.intro-text p{
+    font-size: 15px;
+}
+.landing-btn-cont{
+    padding-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.landing-btn{
+    font-size: 14px;
+    padding: 10px;
+    background-color: #93ff4bdd;
+    color: #032426;
+    border: none;
+}
+.landing-btn:hover{
+    background-color: #93FF4B;
+}
+.portait-cont img{
+    width: 80%;
+    height: 80%;
+}
+.portait-cont{
+    padding: 1% 0% 0% 10%;
+    /* background-color: peru; */
+}
+
+.about-me{
+    text-align: center;
+}
+.about-me h1{
+    color:#93FF4B
+}
+.about-me p{
+    color: #fff;
+}
+
+.skills{
+    padding-top: 1%;
+    text-align: center;
+}
+.skills h1{
+    color: #93FF4B;
+}
+.cards-cont{
+    display:flex;
+    justify-content: space-evenly;
+    color:#fff
+}
+.fa-js,.fa-html5,.fa-css3-alt{
+    width: 50px;
+    height: 50px;
+}
