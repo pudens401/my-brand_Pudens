@@ -1,0 +1,67 @@
+body{                       /*032426  93FF4B*/
+    margin: 0;
+    padding: 0;
+    background-color: #032426;
+}
+.d-nav{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: wheat solid 2px;
+}
+.d-logo{
+    background-color: firebrick;
+    width: 10vw;
+}
+.d-middle-header{
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    width: 50%;
+    background-color: lavender;
+}
+.d-user-info{
+    display: flex;
+    justify-content: space-around;
+    height: 10vh;
+    width: 20vw;
+    background-color: chartreuse;
+}
+
+.d-cont{
+    display: flex;
+
+}
+.d-menu{
+    display: flex;
+    flex-direction: column;
+    padding: 5vh 2.5vw;
+    color: #fff;
+    width: 12vw;
+    height: 100%;
+    background-color: forestgreen;
+}
+.d-menu-item{
+    display: flex;
+    margin:2vh 0px;
+}
+#d-logout{
+    color: red;
+    margin-top:10vh;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+main{
+    width: 59.5vw;
+    background-color: aqua;
+    height: 100vh;
+   
+}
+.scrollable{
+    height: 100vh;
+    overflow-y: auto;
+}
+.d-sidebar{
+    width:23vw;
+    background-color: darkgoldenrod;
+}
