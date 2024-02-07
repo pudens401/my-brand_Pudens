@@ -4,6 +4,7 @@ body{                         /*032426  93FF4B*/
     background-color: #032426;
 }
 
+
 nav{
     padding: 0% 5% 0% 5%;
     display: flex;
@@ -13,6 +14,7 @@ nav{
     color:#fff;
     background-color:#032426 ;
 }
+
 .navlinks{
     display: flex;
     justify-content: space-between;
@@ -113,6 +115,12 @@ h3 #pudens{
     text-align: center;
     color: #93FF4B;
 }
+#my-works article{
+    border: solid 1px skyblue;
+}
+#my-blog article{
+    border: solid 1px skyblue;
+}
 .works-cards-cont{
     display: flex;
     align-items: center;
@@ -135,12 +143,12 @@ h3 #pudens{
     height: 100%;
 }
 #view-work-btn{
-    width: 45%;
+    width: 20%;
     background-color: #93FF4B;
     margin-left: 25%;
     margin-top: 7%;
     border: none;
-    padding: 3%;
+    padding: 1%;
 }
 .work-features{
     list-style-type: none;
@@ -183,25 +191,27 @@ h3 #pudens{
 }
 .recent-blogs-cont{
     padding-top: 10px;
-    width:54vw;
+    width:50vw;
     display: grid;
     grid-template-columns: 10vw 10vw 10vw;
     background-color: aquamarine;
     margin: auto;
 }
 .recent-blog{
-    flex: 1;
-    flex-direction: column;
+    display: block;
+    
     background-color: aqua;
-    width: fit-content;
+    width:fit-content;
     margin-left: 10px;
+    height: 40vh;
     /* margin-left: 2vw;     */
 }
 .recent-blog img{
-    width: 17vw;
+    width: 50%;
+    height: 45%;
 }
 .recent-blog h4,p{
-    padding-top: -10vh;
+    /* padding-top: -10vh; */
 }
 .recent-blog h4{
     font-size: 20px;
