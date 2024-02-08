@@ -1,31 +1,35 @@
 body{                         /*032426  93FF4B*/
-    margin: 0px;
-    padding: 0px;
-    background-color: #032426;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color:#000;
 }
-/* Start of header */
+
+/*Start of header*/
+
 nav{
     padding: 0% 5% 0% 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
-    color:#fff;
-    background-color:#032426 ;
+    
+    background-color:#fff ;
 }
 
 .navlinks{
     display: flex;
     justify-content: space-between;
+    
 }
 .navlinks a{
     padding: 10px;
     text-decoration: none;
-    color: #fff;
+    color:#000 ;
 
 }
 .navlinks a:hover{
-    color:#93FF4B;
+    color:#1975FF;
 }
 .navlinks #home{
     text-decoration: overline;
@@ -33,15 +37,15 @@ nav{
 #login-btn{
     font-size: 15px;
     padding: 10px;
-    background-color: #93ff4bdd;
-    color: #032426;
+    background-color: #1975FF;
+    color: #fff;
     border: none;
 }
 #login-btn:hover{
-    background-color: #93FF4B;
+    background-color: #1975FF;
 }
 
-/* End of header */
+/*End of header*/
 
 .blog-cont{
     display: flex;
@@ -56,7 +60,7 @@ nav{
     flex-direction: column;
     justify-content: space-between;
     width: 58vw;
-    background-color: burlywood;
+    color: #000;
     margin-right: 1vw;
 }
 
@@ -69,7 +73,6 @@ nav{
 .blog-main-img{
     width: 100%;
     height:50vh;
-    background-color: fuchsia;
 }
 .blog-main-img img{
     width: 100%;
@@ -90,32 +93,33 @@ nav{
     flex: 1;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color:silver;
     width: 10vw;
-    
+    color: #000;
 }
 
 
 .blog-comments h2{
     text-align: center;
+    border-bottom: solid 2px #1975FF;
+    
 }
 .comment-section{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: aqua;
 }
 .comments-cont{
     display: flex;
     flex-direction: column;
-    background-color: gray;
 }
 .comment-header{
     display: flex;
     justify-content: space-between;
-    background-color: tomato;
     height: fit-content;
     font-size: 11px;
+}
+.c-name p{
+    color: #1975FF;
 }
 .c-name{
     display: flex;
@@ -134,17 +138,17 @@ nav{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: wheat;
     margin-top: 1vh;
     padding: 0px 1vw;
+    border: solid 1px #1975FF;
 }
 .comment-body{
     margin: 0;
-    background-color: yellowgreen;
 }
 .comment-analytics{
     display: flex;
     justify-content: space-evenly;
+    color: #1975FF;
 }
 
 .comment-space-cont{
@@ -161,5 +165,8 @@ nav{
     width: 48%;
     margin-right: 0px;
     margin-left: auto;
+    background-color: #1975FF;
+    color: #fff;
+    border: none;
 }
 

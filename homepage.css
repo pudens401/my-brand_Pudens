@@ -1,9 +1,11 @@
 body{                         /*032426  93FF4B*/
-    margin: 0px;
-    padding: 0px;
-    background-color: #032426;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color:#000;
 }
 
+/*Start of header*/
 
 nav{
     padding: 0% 5% 0% 5%;
@@ -11,22 +13,23 @@ nav{
     justify-content: space-between;
     align-items: center;
     margin: auto;
-    color:#fff;
-    background-color:#032426 ;
+    
+    background-color:#fff ;
 }
 
 .navlinks{
     display: flex;
     justify-content: space-between;
+    
 }
 .navlinks a{
     padding: 10px;
     text-decoration: none;
-    color: #fff;
+    color:#000 ;
 
 }
 .navlinks a:hover{
-    color:#93FF4B;
+    color:#1975FF;
 }
 .navlinks #home{
     text-decoration: overline;
@@ -34,20 +37,30 @@ nav{
 #login-btn{
     font-size: 15px;
     padding: 10px;
-    background-color: #93ff4bdd;
-    color: #032426;
+    background-color: #1975ff9d;
+    color: #fff;
     border: none;
 }
 #login-btn:hover{
-    background-color: #93FF4B;
+    background-color: #1975ff;
 }
+.linked-btn a{
+    color: #fff;
+    text-decoration: none;
+}
+.linked-btn a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+
+/*End of header*/
 
 #landing-page{
     display: flex;
     justify-content: center;
 }
 .intro-text{
-    color: #fff;
+    
     padding: 3% 1% 1% 10%;
     font-size: 20px ;
 }
@@ -55,7 +68,7 @@ h3 #hello{
     font-size: 18px;
 }
 h3 #pudens{
-    color: #93FF4B;
+    color: #1975FF;
 }
 .intro-text p{
     font-size: 15px;
@@ -69,12 +82,12 @@ h3 #pudens{
 .landing-btn{
     font-size: 14px;
     padding: 10px;
-    background-color: #93ff4bdd;
-    color: #032426;
+    background-color: #1975ffaa;
+    color: #fff;
     border: none;
 }
 .landing-btn:hover{
-    background-color: #93FF4B;
+    background-color: #1975FF;
 }
 .portait-cont img{
     width: 80%;
@@ -89,10 +102,10 @@ h3 #pudens{
     text-align: center;
 }
 /* .about-me h1{
-    color:#93FF4B
+    color:#1975FF
 } */
 #about-me p{
-    color: #fff;
+    
 }
 
 #skills{
@@ -100,20 +113,32 @@ h3 #pudens{
     text-align: center;
 }
 /* .skills h1{
-    color: #93FF4B;
+    color: #1975FF;
 } */
 .cards-cont{
     display:flex;
     justify-content: space-evenly;
-    color:#fff;
+    
 }
 .card-logo i{
     font-size: 50px;
 }
 
+.fa-html5{
+    color: orangered;
+}
+.fa-css3-alt{
+    color: #130FF0;
+}
+.fa-js{
+    color: yellow;
+}
+.fa-arduino{
+
+}
 .section-headers{
     text-align: center;
-    color: #93FF4B;
+    color: #1975FF;
 }
 #my-works article{
     border: solid 1px skyblue;
@@ -130,13 +155,14 @@ h3 #pudens{
 .works-card{
     display: flex;
     margin-bottom: 3%;
-    background-color: aqua;
     width: fit-content;
 }
 .works-text{
-    font-size: 25px;
-    color: #fff;
+    font-size: 20px;
     width: 30vw ;
+}
+.works-text h3{
+    padding-left: 2vw;
 }
 .works-images img{
     width: 20vw;
@@ -144,16 +170,21 @@ h3 #pudens{
 }
 #view-work-btn{
     width: 20%;
-    background-color: #93FF4B;
+    background-color: #1975FF;
     margin-left: 25%;
     margin-top: 7%;
     border: none;
     padding: 1%;
+    color: #fff;
+}
+.works-text h3{
+    color: #130FF0;
 }
 .work-features{
     list-style-type: none;
     align-items: left;
     padding-left: 8%;
+    color: #1975FF;
 }
 .work-features li{
     margin: 0px;
@@ -169,6 +200,8 @@ h3 #pudens{
     border: none;
     border: none;
     padding: 0.5%;
+    background-color: #1975FF;
+    color: #fff;
 }
 
 #my-blog{
@@ -179,8 +212,6 @@ h3 #pudens{
 }
 .new-blog{
     display: flex;
-    /* justify-content: center; */
-    background-color: #93FF4B;
     width: 50vw;
     margin: auto;
 
@@ -189,29 +220,46 @@ h3 #pudens{
     width: 15vw;
     height: 100%;
 }
+.new-blog-text{
+    margin-left: 1vw;
+}
+#new-blog-more{
+    margin-right: 0vw;
+    margin-left: 25vw;
+    background-color: #1975FF;
+    color: #fff;
+    border: none;
+}
 .recent-blogs-cont{
     padding-top: 10px;
-    width:50vw;
+    width:80vw;
     display: grid;
-    grid-template-columns: 10vw 10vw 10vw;
-    background-color: aquamarine;
+    grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
     margin: auto;
 }
 .recent-blog{
-    display: block;
-    
-    background-color: aqua;
-    width:fit-content;
-    margin-left: 10px;
-    height: 40vh;
-    /* margin-left: 2vw;     */
+    display: flex;
+    flex-direction: column;
+    margin-left: .5vw;
+    height:30vh;
+    overflow-y: hidden;
+    width: 100% ;
+    font-size: .7vw;
+}
+.recent-blog-analytics{
+    display:flex;
+    justify-content: space-around;
+    margin-top: -1vh;
+    font-size: 5px;
+    color: #000;
 }
 .recent-blog img{
-    width: 50%;
-    height: 45%;
+    width: 100%;
+    height: 50%;
 }
-.recent-blog h4,p{
-    /* padding-top: -10vh; */
+.recent-blog-title{
+   display:contents; 
+   color: #1975FF;
 }
 .recent-blog h4{
     font-size: 20px;
@@ -223,17 +271,35 @@ h3 #pudens{
     display: flex;
     align-items: center;
 }
+.linked-text a{
+    display:contents; 
+   color: #1975FF;
+   text-decoration: none;
+}
+.linked-text a:visited{
+    display:contents; 
+   color: #1975FF;
+   text-decoration: none;
+}
 
+.view-more-blogs{
+    margin-top: 2vh;
+    width: 8vw;
+    height: 5vh;
+    background-color: #1975FF;
+    border: none;
+    color: #fff;
+}
 
 #contact-me{
     /* background-color: black; */
-    color: #fff;
+    
     flex: 1;
-    padding: 40px 0px;
+    padding: 5vh 5vw;
+    color: #1975FF;
 
 }
 .m-main{
-    /* background-color: aquamarine; */
     display: flex;
     justify-content: center;
     width: fit-content;
@@ -247,11 +313,10 @@ h3 #pudens{
     justify-content: space-around;
     flex-direction: column;
     /* background-color: grey; */
-    width: fit-content;
-    padding: 10px 10vw 10px 5vw;
+    width: 15vw;
+    padding: 1vh 10vw 5vh 5vw;
 }
 .send-message{
-    /* background-color: burlywood; */
     width: 30vw;
 }
 #m-form{
@@ -266,6 +331,9 @@ h3 #pudens{
     display: block;
     margin-left: auto;
     margin-right: 0px;
+    background-color: #1975FF;
+    border: none;
+    color: #fff;
 }
 .socials{
     /* background-color: antiquewhite; */
@@ -275,6 +343,25 @@ h3 #pudens{
 
 footer{
     text-align: center;
+    background-color: #1975FF;
     color: #fff;
+    padding: 10px;
 }
 
+
+/* 768px and 360 responsiveness*/
+
+@media screen and (max-width:360px){
+
+}
+
+@media screen and (max-width:768px){
+  nav{
+    flex-direction: column;
+    margin-left: 1px;
+    align-items: flex-start;
+  }  
+  .navlinks{
+    flex-direction: column;
+  }
+}
