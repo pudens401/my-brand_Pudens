@@ -6,6 +6,14 @@ header{
     color: #1975FF;
     padding: 0px 40px;
 }
+#logo{
+    text-decoration: none;
+    color: #000;
+}
+#logo:visited{
+    text-decoration: none;
+    color: #000;
+}
 .login-container{
     display:flex;
     justify-content: center;

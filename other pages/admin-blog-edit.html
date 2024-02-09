@@ -3,56 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Individual blog</title>
-    <link rel="stylesheet" href="individual-blog.css">
+    <title>A-Blog-edit</title>
+    <link rel="stylesheet" href="admin-blog-edit.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <nav>
-        <a href="../index.html" id="logo"><h2>Logo</h2></a>
-        <div class="navlinks">
-            <a href="#top">HOME</a>
-            <a href="#about-me">ABOUT ME</a>
-            <a href="#skills">SKILLS</a>
-            <a href="#my-works">MY WORKS</a>
-            <a href="#my-blog">BLOGS</a>
-            <a href="#contact-me">CONTACTS</a>
+    <header class="d-nav">
+        <div class="d-logo">Logo</div>
+        <div class="d-middle-header">
+            <h1>DASHBOARD</h1>
+            <button>NEW BLOG <i class="fa-solid fa-paper-plane"></i></button>
         </div>
-        <button id="login-btn" class="linked-btn"><a href="./login.html">Login/Signup</a></button>
-    </nav>
-    <div class="blog-cont">
+        <div class="d-user-info">
+            <img id="user-img" src="./images/images_portraits/portrait.png" alt="Admin">
+            <p id="user-name">Admin</p>
+        </div>
+    </header>
+    <div class="d-cont">
+        <div class="d-menu">
+            <div class="d-menu-item">
+                <i class="fa-solid fa-chart-line"></i>DASHBOARD   
+            </div>
+            <div class="d-menu-item">
+                <i class="fa-solid fa-newspaper"></i> BLOGS
+            </div>
+            <div class="d-menu-item">
+                <i class="fa-solid fa-envelope"></i> MESSAGES
+            </div>
+            <div class="d-menu-item">
+                <i class="fa-solid fa-user"></i> YOUR ACCOUNT
+            </div>
+            <div class="d-menu-item" id="d-logout">
+                <i class="fa-solid fa-power-off"></i> LOGOUT
+            </div>
+        </div>
         <div class="blog-main scrollable">
             <div class="blog-main-img">
                 <img src="./images/images_blog/getting-personal-with-on-device-ai.png" alt="">
+                <div id="edit-pic">
+                    <i class="fa-solid fa-image"></i>Edit cover image 
+                </div>
             </div>
             <div class="blog-main-body">
-                <h2 class="blog-main-title">How to leverage AI in your everyday work</h2>
-                <p class="blog-main-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                     Nulla ante velit, luctus ac arcu non, tempus semper tellus. 
-                     In nec ex luctus, ultricies diam vel, rutrum libero. 
-                     Nulla vitae fermentum magna. Praesent ornare est a mi lacinia,
-                      a porttitor eros vehicula. Sed placerat turpis nec risus male
-                      suada, at condimentum diam rhoncus. Sed interdum vitae ex non gravida. C
-                      ras blandit ac metus in tincidunt. D
-                      faucibus orci luctus et ultrices posuere cubilia curae; Nunc quam enim, luctus n
-                      ec elit lobortis, euismod molestie nibh. In eu dolor ac ipsum dictum efficitur 
-                      eu non justo. Praesent eu dapibus elit, eu malesuada mi. Pellentesque rhoncus 
-                      vestibulum tortor, sit amet aliquam arcu. Interdum et malesuada fames ac ante i
-                      psum primis in faucibus. Mauris at pharetra magna. Pellentesque sodales ante vitae n
-                      isl egestas ultricies.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                       ante velit, luctus ac arcu non, tempus semper tellus. In nec ex luctus, ultricies diam 
-                       vel, rutrum libero. Nulla vitae fermentum magna. Praesent ornare est a mi lacinia, a portti
-                       tor eros vehicula. Sed placerat turpis nec risus malesuada, at condimentum diam rhoncus. Se
-                       d interdum vitae ex non gravida. Cras isl egestas ultricies.Lorem ipsum dolor sit amet, c
-                       onsectetur adipiscing elit. Nulla ante velit, luctus ac arcu non, t
-                       empus semper tellus. In nec ex luctus, ultricies diam vel, rutrum lib
-                       ero. Nulla vitae fermentum magna. Praesent ornare est a mi lacinia, a po
-                       rttitor eros vehicula. Sed placerat turpis nec risus malesuada, at condimentum diam
-                        rhoncus. Sed interdum vitae ex non gravida. Cras blandit ac metus in tincidun
-                        t. Duis semper nibh eget libero varius posuere id ac nunc. Vestibulum ante ipsum p
-                        rimis in faucibus orci luctus et ultrices posuere cubilia curae; 
-                </p>
+                <div class="a-title-cont">
+                    <h2 class="blog-main-title">How to leverage AI in your everyday work</h2>
+                    <div class="high-icons manage-icons">
+                        <i class="fa-solid fa-trash"></i>
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                </div>
+                <textarea name="blog-edit-text" id="blog-edit-area" cols="95" rows="20">
+                    
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dignissim orci sed nisl vulputate lobortis. Sed nec iaculis est, ut suscipit ipsum. Morbi sem diam, luctus sed mi eget, fringilla suscipit tortor. Aliquam pellentesque, mi quis aliquet egestas, mi mauris tincidunt sapien, vel vestibulum quam augue et felis. Phasellus molestie est eu magna consequat feugiat. Etiam vitae est lectus. Integer nec justo blandit, aliquam turpis ac, fringilla dui. Morbi eleifend eu lacus eu ullamcorper.
+
+Aliquam scelerisque justo nibh, at facilisis arcu finibus vel. Proin vitae tempor erat. Mauris sagittis lacus mauris, sit amet venenatis est aliquam vitae. Nunc velit eros, ultricies sit amet fermentum vitae, bibendum ut nulla. Fusce interdum lacus laoreet nisi accumsan, ut pharetra metus aliquam. Duis nec ex id risus faucibus imperdiet eu id arcu. Ut in enim in massa scelerisque cursus eget ac lacus. Phasellus diam elit, auctor ut sagittis vel, porttitor a enim.
+
+Nunc id risus non odio vehicula finibus ac ut metus. Duis eros lorem, cursus vel leo id, placerat semper tellus. Proin non egestas sem. Donec a lacus sit amet lorem fermentum aliquam ut ac purus. In id purus ac risus mattis varius a id diam. Suspendisse nulla risus, vulputate aliquet nibh sed, convallis convallis neque. Vivamus tincidunt enim quis velit molestie, at consectetur ex scelerisque. Pellentesque finibus lectus eu scelerisque laoreet. Curabitur molestie leo ac imperdiet sodales. Aliquam sit amet euismod velit. Proin sodales ante et mollis luctus. Nulla blandit auctor leo, vel eleifend augue porttitor ut. Donec vel urna facilisis, cursus dui id, vestibulum dui.
+
+Proin sagittis dolor lacus, et vulputate enim varius ut. Suspendisse quis venenatis tellus. Fusce eget dapibus erat. Quisque sit amet lacus vel nisl tristique viverra. Quisque sagittis convallis est. Fusce quis condimentum urna. In efficitur consectetur pharetra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut luctus nulla nec ex sodales accumsan.
+
+Maecenas efficitur mattis ante. Sed placerat augue ac odio aliquam aliquam rutrum et mi. Donec quis vulputate sem. Praesent fringilla euismod tortor, ac euismod eros porttitor a. Mauris vitae posuere nulla, vel fermentum nisi. Cras dignissim lacus a eros hendrerit, non eleifend neque sodales. Praesent ultrices vehicula ligula, sed gravida arcu maximus et. Fusce consectetur leo dui, non blandit felis sollicitudin nec. Duis feugiat massa eu gravida dapibus. Nullam blandit mi metus.
+                </textarea>
             </div>
         </div>
         <div class="blog-comments scrollable">
@@ -140,10 +151,6 @@
                 <div class="analytic-cont">
                     <p>12/12/2024</p>
                 </div>
-             </div>
-             <div class="comment-space-cont">
-                <textarea name="sent-comment" id="comment-input" cols="30" rows="4"></textarea>
-                <button id="comment-send">Comment<i class="fa-solid fa-paper-plane"></i></button>
              </div>
          </div>
         </div>

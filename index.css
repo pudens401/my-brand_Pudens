@@ -16,7 +16,14 @@ nav{
     
     background-color:#fff ;
 }
-
+#logo{
+    text-decoration: none;
+    color: #000;
+}
+#logo:visited{
+    text-decoration: none;
+    color: #000;
+}
 .navlinks{
     display: flex;
     justify-content: space-between;
@@ -360,8 +367,12 @@ footer{
     flex-direction: column;
     margin-left: 1px;
     align-items: flex-start;
+    transform: translateX(-250px) ;
   }  
   .navlinks{
+    background-color: skyblue;
     flex-direction: column;
+    width: 0px;
+    height: 0px;
   }
 }

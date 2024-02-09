@@ -17,7 +17,14 @@ nav{
     
     background-color:#fff ;
 }
-
+#logo{
+    text-decoration: none;
+    color: #000;
+}
+#logo:visited{
+    text-decoration: none;
+    color: #000;
+}
 .navlinks{
     display: flex;
     justify-content: space-between;

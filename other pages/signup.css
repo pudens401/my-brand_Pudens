@@ -12,6 +12,14 @@ header{
     width: 95%;
     margin: auto;
 }
+#logo{
+    text-decoration: none;
+    color: #000;
+}
+#logo:visited{
+    text-decoration: none;
+    color: #000;
+}
 .welcome-text{
      display: flex;
     justify-content: center;

@@ -83,7 +83,7 @@ button{
     justify-content: space-evenly;
     font-size: 1.5vw;
     align-items: baseline;
-    /* border: 1px #1975ff solid; */
+    border: 1px #1975ff solid;
 }
 .monthly--analytics{
     background-color: rgb(214, 214, 214);
@@ -97,7 +97,7 @@ button{
     /* background-color: slateblue; */
     width: 60%;
     margin: 5vh auto;
-    /* border: 1px #1975ff solid; */
+    border: 1px #1975ff solid;
 }
 #blog-inputs{
     display: flex;
@@ -124,7 +124,7 @@ input,textarea{
     display: flex;
     justify-content: space-between;
     margin-top: 2vh;
-    /* border: 1px #1975ff solid; */
+    border: 1px #1975ff solid;
 }
 .high-blogs{
     width: 35vw;
@@ -199,7 +199,7 @@ input,textarea{
 
 
 .d-recent-blogs{
-    /* border: 1px #1975ff solid; */
+    border: 1px #1975ff solid;
     margin-left: 1vw;
     display: flex;
     flex-direction: column;
@@ -267,43 +267,59 @@ input,textarea{
 }
 .d-sidebar{
     width:23vw;
-    /* border: 1px #1975ff solid; */
+    border: 1px #1975ff solid;
+    padding-top: 2vh;
 }
 
 #sidebar-cont{
     background-color: skyblue;
     height: fit-content;
+    height: fit-content;
     padding-bottom: 10vh;
 }
-.recent-messages{
-    display: flex;
-    flex-direction: column;
-}
-.recent-messages h3{
-    text-align: center;
-    color: #1975ff;
-}
-.d-m-item{
+
+
+
+.d-s-m-item{
     margin-top: 1vh;
     border: 1px #1975ff solid;
     padding: 0 0 .1vh 0;
-    height: 17vh;
+    height: fit-content;
+    padding-bottom: 5vh;
 }
-.m-id{
+.s-m-head{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+}
+.s-m-nav{
+    background-color: #1975ff;
+    width: fit-content;
+    margin-left: 1vh;
+}
+.s-m-id{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     width: 90%;
     margin-right: 0%;
     margin-left: auto;
     color: #1975ff;
 }
-.m-id .fa-envelope-open-text{
+.s-m-manage{
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: aquamarine; */
+    align-self: baseline;
+    width: 80%;
+}
+.s-m-id .fa-envelope-open-text{
     color: rgb(1, 150, 1);
 }
-.m-id .fa-envelope{
+.s-m-id .fa-envelope{
     color: rgb(196, 0, 0);
 }
-.m-body{
+.s-m-body{
     width: 90%;
     margin-right: 5%;
     margin-left: auto;
