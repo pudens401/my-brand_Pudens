@@ -65,6 +65,11 @@ button{
     margin-right: 0;
     margin-left: auto;
 }
+#d-logout a{
+    color: red;
+    text-decoration: none;
+}
+
 
 
 #d-main{
