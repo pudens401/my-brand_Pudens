@@ -252,6 +252,7 @@ h3 #pudens{
     overflow-y: hidden;
     width: 100% ;
     font-size: .7vw;
+    padding-bottom: 2vh;
 }
 .recent-blog-analytics{
     display:flex;
