@@ -361,40 +361,51 @@ textarea:focus{
 
 
 
-.recent-messages{
-    display: flex;
-    flex-direction: column;
-}
-.recent-messages h3{
-    text-align: center;
-    color: #1975ff;
-}
-.d-m-item{
+.d-s-m-item{
     margin-top: 1vh;
     border: 1px #1975ff solid;
     padding: 0 0 .1vh 0;
     height: fit-content;
-    padding-bottom: 1vh;
+    padding-bottom: 5vh;
 }
-.m-id{
+.s-m-head{
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    flex-direction: column;
+}
+.s-m-nav{
+    background-color: #1975ff;
+    width: fit-content;
+    margin-left: 1vh;
+}
+.s-m-id{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 98%;
     margin-right: 0%;
-    margin-left: auto;
+    margin-left: 1%;
     color: #1975ff;
 }
-.m-id .fa-envelope-open-text{
+.s-m-manage{
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: aquamarine; */
+    align-self: baseline;
+    width: 80%;
+}
+.s-m-id .fa-envelope-open-text{
     color: rgb(1, 150, 1);
 }
-.m-id .fa-envelope{
+.s-m-id .fa-envelope{
     color: rgb(196, 0, 0);
 }
-.m-body{
-    width: 90%;
-    margin-right: 5%;
-    margin-left: auto;
+.s-m-body{
+    width: 95%;
+    margin-right: 0;
+    margin-left: 2.5%;
 }
+
 
 
 @media screen and (max-width:768px){
@@ -413,7 +424,8 @@ textarea:focus{
     .d-menu,
     .d-logo,
     .d-middle-header button,
-    #user-name{
+    #user-name,
+    #d-main{
         display: none;
     }
     .d-cont{
@@ -548,7 +560,8 @@ textarea:focus{
 
 
     .d-sidebar{
-        width:60%;
+        margin-top: 1vh;
+        width:90%;
         border: 1px #1975ff solid;
         height: fit-content;
     }
@@ -558,48 +571,52 @@ textarea:focus{
         height: fit-content;
         padding-bottom: 10vh;
     }
-    .recent-messages{
-        display: flex;
-        flex-direction: column;
-    }
-    .recent-messages h3{
-        text-align: center;
-        color: #1975ff;
-    }
-    .d-m-item{
-        margin-top: 1vh;
-        border: 1px #1975ff solid;
-        padding: 0 0 .1vh 0;
-        height: fit-content;
-        padding-bottom: 1vh;
-        width: 80%;
-        align-self: center;
-        margin: auto;
-    }
-    .m-id{
-        display: flex;
-        justify-content: space-between;
-        width: 85%;
-        margin-right: auto;
-        margin-left: 15%;
-        color: #1975ff;
-        /* background-color: wheat; */
-    }
-    .m-id i{
-        position: relative;
-        margin-right: 0;
-    }
-    .m-id .fa-envelope-open-text{
-        color: rgb(1, 150, 1);
-    }
-    .m-id .fa-envelope{
-        color: rgb(196, 0, 0);
-    }
-    .m-body{
-        width: 90%;
-        margin-right: 5%;
-        margin-left: auto;
-    }
+
+
+    .d-s-m-item{
+    border: 1px #1975ff solid;
+    padding: 0 0 .1vh 0;
+    height: fit-content;
+    padding-bottom: 5vh;
+}
+.s-m-head{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.s-m-nav{
+    background-color: #1975ff;
+    width: fit-content;
+    margin-left: 1vh;
+}
+.s-m-id{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 95%;
+    margin-right: 2%;
+    margin-left: 3%;
+    color: #1975ff;
+}
+.s-m-manage{
+    display: flex;
+    justify-content: space-between;
+    align-self: baseline;
+    width: 13%;
+}
+.s-m-id .fa-envelope-open-text{
+    margin-left: 1vw;
+    color: rgb(1, 150, 1);
+}
+.s-m-id .fa-envelope{
+    color: rgb(196, 0, 0);
+}
+.s-m-body{
+    width: 95%;
+    margin-right: 0;
+    margin-left: 2.5%;
+}
+
 
 }
 

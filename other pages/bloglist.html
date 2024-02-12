@@ -9,16 +9,31 @@
 </head>
 <body>
     <nav>
-        <a href="../index.html" id="logo"><h2>Logo</h2></a>
-        <div class="navlinks">
-            <a href="#top">HOME</a>
-            <a href="#about-me">ABOUT ME</a>
-            <a href="#skills">SKILLS</a>
-            <a href="#my-works">MY WORKS</a>
-            <a href="#my-blog">BLOGS</a>
-            <a href="#contact-me">CONTACTS</a>
+        <div class="nav-cont">
+            <a id="logo" href="../index.html"><h2>Pudens</h2></a>
+            <div class="navlinks">
+                <a href="../index.html#top">HOME</a>
+                <a href="../index.html#about-me">ABOUT ME</a>
+                <a href="../index.html#skills">SKILLS</a>
+                <a href="../index.html#my-works">MY WORKS</a>
+                <a href="../index.html#my-blog">BLOGS</a>
+                <a href="../index.html#contact-me">CONTACTS</a>
+            </div>
+            <button id="login-btn" class="linked-btn"><a href="./login.html">Login/Signup</a></button>
+            <div id="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
-        <button id="login-btn" class="linked-btn"><a href="./login.html">Login/Signup</a></button>
+        <div class="dropdown-menu">
+            <li><a href="../index.html#top">HOME</a></li>
+            <li><a href="../index.html#about-me">ABOUT ME</a></li>
+            <li><a href="../index.html#skills">SKILLS</a></li>
+            <li><a href="../index.html#my-works">MY WORKS</a></li>
+            <li><a href="../index.html#my-blog">BLOGS</a></li>
+            <li><a href="../index.html#contact-me">CONTACTS</a></li>
+            <li><button id="login-btn2" class="linked-btn2"><a href="./login.html">Login/Signup</a></button></li>
+        </div>
+
     </nav>
     <section class="new-blog">
         <div class="new-blog-img">
@@ -166,5 +181,6 @@
             </div>
         </article>
     </section>
+    <script src="bloglist.js"></script>
 </body>
 </html>

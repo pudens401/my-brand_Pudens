@@ -1,4 +1,8 @@
-body{                         /*032426  93FF4B*/
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fasthand&display=swap');
+
+body{    
+    font-family: "Quicksand",sans-serif;                     /*032426  93FF4B*/
     margin: 0;
     padding: 0;
     background-color: #fff;
@@ -8,17 +12,45 @@ body{                         /*032426  93FF4B*/
 /*Start of header*/
 
 nav{
+    width: 100%;
+}
+.nav-cont{
     padding: 0% 5% 0% 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
-    
-    background-color:#fff ;
+}
+.dropdown-menu{
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 80px;
+    right: 0vw;
+    background-color: #908766;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    height: 0;
+    transition: height .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#menu-btn{
+    display: none;
+}
+.dropdown-menu.open{
+    height: fit-content;
+}
+.dropdown-menu li{
+    padding: .5vh .1vw;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 30vw;
 }
 #logo{
     text-decoration: none;
     color: #000;
+    font-family: "Fasthand",sans-serif;
 }
 #logo:visited{
     text-decoration: none;
@@ -29,33 +61,40 @@ nav{
     justify-content: space-between;
     
 }
-.navlinks a{
+.navlinks a,
+li a{
     padding: 10px;
     text-decoration: none;
     color:#000 ;
 
 }
-.navlinks a:hover{
+.navlinks a:hover,
+li a:hover{
     color:#1975FF;
 }
 .navlinks #home{
     text-decoration: overline;
 }
-#login-btn{
+#login-btn,
+#login-btn2{
     font-size: 15px;
     padding: 10px;
     background-color: #1975ff9d;
     color: #fff;
     border: none;
 }
-#login-btn:hover{
+
+#login-btn:hover,
+#login-btn2:hover{
     background-color: #1975ff;
 }
-.linked-btn a{
+.linked-btn a,
+.linked-btn2 a{
     color: #fff;
     text-decoration: none;
 }
-.linked-btn a:visited{
+.linked-btn a:visited,
+.linked-btn2 a:visited{
     color: #fff;
     text-decoration: none;
 }
@@ -185,3 +224,135 @@ nav{
     border: none;
 }
 
+@media screen and (max-width:768px){
+    /*Start of header*/
+    
+        .navlinks,
+    #login-btn{
+        display: none;
+    }
+    #menu-btn{
+        display: block;
+    }
+    .dropdown-menu{
+        display: block;
+    }
+    
+    /*End of header*/
+
+    .blog-cont{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0px 5vw 0px 0px;
+        color: #fff;
+        margin: auto;
+        gap: 0px;
+    }
+    .blog-main{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 80%;
+        color: #000;
+        margin:auto;
+        margin-top: 5%;
+        height: fit-content;
+    }
+    
+    .blog-main-title{
+        color:#1975FF;
+    }
+    .blog-main-body{
+        padding:0px 3%;
+    }
+    .blog-main-img{
+        width: 100%;
+        height:fit-content;
+    }
+    .blog-main-img img{
+        width: 100%;
+        height: fit-content;
+    }
+    
+   
+    
+    
+    .blog-comments{
+        /* display: flex; */
+        flex: 1;
+        /* flex-direction: column-reverse; */
+        justify-content: space-evenly;
+        width: 75%;
+        color: #000;
+        margin: auto;
+    }
+    
+    
+    .comment-section{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+    .comments-cont{
+        display: flex;
+        flex-direction: column;
+    }
+    .comment-header{
+        display: flex;
+        justify-content: space-between;
+        height: fit-content;
+        font-size: 11px;
+    }
+    .c-name p{
+        color: #1975FF;
+    }
+    .c-name{
+        display: flex;
+    }
+    #p-pic{
+        display: inline-block;
+        width:80% ;
+        height: 100%;
+        background-color: gray;
+        padding: 1px;
+        border-radius: 50%;
+        margin: 0px 5px;
+        text-align: center;
+    }
+    .comment-item{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 1vh;
+        padding: 0px 1vw;
+        border: solid 1px #1975FF;
+    }
+    .comment-body{
+        margin: 0;
+    }
+    .comment-analytics{
+        display: flex;
+        justify-content: space-evenly;
+        color: #1975FF;
+    }
+    
+    .comment-space-cont{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 75%;
+        margin: auto;
+        
+        padding: 2.5%;
+        margin-top: 10%;
+    }
+    #comment-send{
+        width: fit-content;
+        margin-right: 0px;
+        margin-left: auto;
+        background-color: #1975FF;
+        color: #fff;
+        border: none;
+    }
+}

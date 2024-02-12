@@ -11,9 +11,33 @@
     <title>Login</title>
 </head>
 <body>
-    <header>
-        <a href="../index.html" id="logo"><h2>Logo</h2></a>
-    </header>
+    <nav>
+        <div class="nav-cont">
+            <a id="logo" href="../index.html"><h2>Pudens</h2></a>
+            <div class="navlinks">
+                <a href="../index.html#top">HOME</a>
+                <a href="../index.html#about-me">ABOUT ME</a>
+                <a href="../index.html#skills">SKILLS</a>
+                <a href="../index.html#my-works">MY WORKS</a>
+                <a href="../index.html#my-blog">BLOGS</a>
+                <a href="../index.html#contact-me">CONTACTS</a>
+            </div>
+            <button id="login-btn" class="linked-btn"><a href="./login.html">Login/Signup</a></button>
+            <div id="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="dropdown-menu">
+            <li><a href="../index.html#top">HOME</a></li>
+            <li><a href="../index.html#about-me">ABOUT ME</a></li>
+            <li><a href="../index.html#skills">SKILLS</a></li>
+            <li><a href="../index.html#my-works">MY WORKS</a></li>
+            <li><a href="../index.html#my-blog">BLOGS</a></li>
+            <li><a href="../index.html#contact-me">CONTACTS</a></li>
+            <li><button id="login-btn2" class="linked-btn2"><a href="./login.html">Login/Signup</a></button></li>
+        </div>
+
+    </nav>
     <div class="signup-container">
         <div class="welcome-text">
             <h2>Welcome</h2>
@@ -58,6 +82,6 @@
             </form>
         </div>
     </div>
-
+    <script src="signup.js"></script>
 </body>
 </html>

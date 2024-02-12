@@ -12,13 +12,40 @@ body{
 /*Start of header*/
 
 nav{
+    width: 100%;
+}
+.nav-cont{
     padding: 0% 5% 0% 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
-    
-    background-color:#fff ;
+}
+.dropdown-menu{
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 80px;
+    right: 0vw;
+    background-color: #908766;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    height: 0;
+    transition: height .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#menu-btn{
+    display: none;
+}
+.dropdown-menu.open{
+    height: fit-content;
+}
+.dropdown-menu li{
+    padding: .5vh .1vw;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 30vw;
 }
 #logo{
     text-decoration: none;
@@ -34,33 +61,40 @@ nav{
     justify-content: space-between;
     
 }
-.navlinks a{
+.navlinks a,
+li a{
     padding: 10px;
     text-decoration: none;
     color:#000 ;
 
 }
-.navlinks a:hover{
+.navlinks a:hover,
+li a:hover{
     color:#1975FF;
 }
 .navlinks #home{
     text-decoration: overline;
 }
-#login-btn{
+#login-btn,
+#login-btn2{
     font-size: 15px;
     padding: 10px;
     background-color: #1975ff9d;
     color: #fff;
     border: none;
 }
-#login-btn:hover{
+
+#login-btn:hover,
+#login-btn2:hover{
     background-color: #1975ff;
 }
-.linked-btn a{
+.linked-btn a,
+.linked-btn2 a{
     color: #fff;
     text-decoration: none;
 }
-.linked-btn a:visited{
+.linked-btn a:visited,
+.linked-btn2 a:visited{
     color: #fff;
     text-decoration: none;
 }
@@ -77,13 +111,13 @@ nav{
     font-size: 20px ;
 }
 h3 #hello{
-    font-size: 18px;
+    font-size: 1.5vw;
 }
 h3 #pudens{
     color: #1975FF;
 }
 .intro-text p{
-    font-size: 15px;
+    font-size: 1.2vw;
 }
 .landing-btn-cont{
     padding-top: 5%;
@@ -114,10 +148,12 @@ h3 #pudens{
     display: flex;
     justify-content:center;
 }
-
+.about-me-alt{
+    display: none;
+}
 #about-me-img{
     width: 30vw;
-    height: 40vh; 
+    height: inherit; 
 }
 #about-me-img img{
     width: 100%;
@@ -127,7 +163,8 @@ h3 #pudens{
     margin-left: 3vw;
     margin-top: -3vh;
     width: 30vw;
-    height: 40vh;
+    height: fit-content;
+    font-size: 1.2vw;
 }
 
 #skills{
@@ -142,21 +179,22 @@ h3 #pudens{
     margin: auto;
     padding-right: 5vw;
     height: fit-content;
+    font-size: 1.5vw;
 }
 .skills-card{
     padding: 10px;
     margin-left: 5vw;
 }
 .skills-card i{
-    font-size: 80px;
+    font-size: 5vw;
 }
 .skills-card p{
-    font-size: 20px;
+    
     font-weight: 500;
 }
 #arduino-logo{
-    width: 90%;
-    height: 80%;
+    width: 63%;
+    height: 50%;
 }
 
 .fa-html5{
@@ -193,6 +231,7 @@ h3 #pudens{
     /* background-color: #1975ff; */
     height: fit-content;
     border: solid 1px #1975FF;
+    font-size: 1.5vw;
 }
 .work-item-img{
     width: 100%;
@@ -204,26 +243,26 @@ h3 #pudens{
 }
 .work-item-text{
     width: 90%;
-    margin: -9px auto 0px auto;
+    margin: -1vh auto 0px auto;
 
 }
 .work-item-more{
-    width: 30%;
+    width: 10vw;
     font-size: 80%;
-    margin: 0px 30%;
+    margin: 0px 7vw;
     align-self: center;
     background-color: #1975FF;
    border: none;
    color: #fff;
-   padding: 10px 1vw;
+   padding: 1vh 1vw;
 }
 .view-more-btns{
-   width: 10%;
+   width: 12vw;
    margin: 30px 45%;
    background-color: #1975FF;
    border: none;
    color: #fff;
-   padding: 10px 1vw;
+   padding: 1.5vh .8vw;
 }
 
 #my-blog article{
@@ -246,11 +285,12 @@ h3 #pudens{
 .recent-blog{
     display: flex;
     flex-direction: column;
+    gap: .1vh;
     margin-left: .5vw;
     height:fit-content;
     width: 25vw ;
-    font-size: .7vw;
-    padding-bottom: 1vh;
+    font-size: .5vw;
+    
 }
 .recent-blog-main{
     margin:auto;
@@ -261,8 +301,8 @@ h3 #pudens{
 .recent-blog-analytics{
     display:flex;
     justify-content: space-around;
-    margin-top: -5vh;
-    font-size: 5px;
+    margin-top: 0vh;
+    font-size: 1.2vw;
     color: #000;
 }
 .recent-blog img{
@@ -308,7 +348,7 @@ h3 #pudens{
     flex: 1;
     padding: 6vh 5vw;
     color: #1975FF;
-
+    width: 80%;
 }
 .m-main{
     display: flex;
@@ -367,21 +407,302 @@ footer{
 
 /* 768px and 360 responsiveness*/
 
-@media screen and (max-width:360px){
+/* @media screen and (max-width:360px){
 
+}
+*/
+
+@media screen and (max-width:680px){
+    #landing-page{
+        display: none;
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin: auto;
+    }
+    .intro-text{
+            padding: 3% .1% 1% 2%;
+            font-size: 1.2vw ;
+            width: 80%;
+        }
+    #about-me{
+        display: flex;
+        width: 90%;
+        margin: auto;
+    }
+    #about-me-img{
+        display: none;
+        overflow: hidden;
+        background-color: #1975FF
+    }
+    #about-me-text{
+        display: none;
+    }
+    .about-me-alt{
+        display: flex;
+        flex-direction: column;
+        font-size:4vw ;
+    }
+    .about-me-alt h1{
+        text-align: center;
+        color: #1975FF;
+    }
+    .skills-card i{
+        font-size: 10vw;
+    }
+    .skills-card p{
+        font-size: 4vw;
+        font-weight: 500;
+    }
+    #arduino-logo{
+        width: 63%;
+        height: 50%;
+    } 
+    .work-items-cont{
+        display: flex;
+        justify-content: space-around;
+        width: 90%;
+        margin: auto;
+    } 
+    .work-item{
+        width: 40%;
+        /* background-color: #1975ff; */
+        height: fit-content;
+        border: solid 1px #1975FF;
+        font-size: 4vw;
+    }   
+    .view-more-btns{
+   width: 12vw;
+   margin: 30px 45%;
+   background-color: #1975FF;
+   border: none;
+   color: #fff;
+   padding: 1.5vh .1vw;
+} 
+.recent-blogs-cont{
+    padding-top: 10px;
+    width:80vw;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    
+}
+.recent-blog{
+    display: flex;
+    flex-direction: row;
+    gap: .1vh;
+    margin-left: .5vw;
+    height:fit-content;
+    width: 100% ;
+    font-size: .1vw;
+    
+}
+.recent-blog-main{
+    margin:auto;
+    margin-top: 2vh;
+    /* background-color: #1975FF; */
+    width: 50%;
+    font-size: 0.1px;
+}
+.recent-blog-analytics{
+    display:flex;
+    justify-content: space-around;
+    margin-top: 0vh;
+    font-size: .2vw;
+    color: #000;
+}
+.recent-blog img{
+    
+    width: 40%;
+    height: 14vh;
+}
+.recent-blog-title{
+   display:contents; 
+   color: #1975FF;
+   font-size: 40px;
+}
+.recent-blog h4{
+    font-size: 3.5vw;
+}
+.recent-blog p{
+    font-size: 2.5vw;
+}
+.recent-blogs-cont{
+    display: flex;
+    align-items: center;
+}
+
+
+
+#contact-me{
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+.m-main{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    border: solid 1px skyblue;
+    padding: 0px;
+    margin: 0px;
+}
+.formal-contacts{
+    align-self: center;
+
+}
+.contact-info{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    color: #000;
+    width: 80%;
+    padding: 1vh 0vw 5vh 0vw;
+    /* align-content: center; */
+}
+p i{
+    color: #1975ff;
+}
+.send-message{
+    width: 80%;
+    align-self: center;
+}
+#m-form{
+    padding:30px 1vw;
+    
+}
+.m-input{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 2px;
+    margin: 2px 1px;
+}
+#m-submit{
+
+    display: block;
+    margin-left: auto;
+    margin-right: 0px;
+    background-color: #1975FF;
+    border: none;
+    color: #fff;
+    padding: 1vh;
+}
+.socials{
+    display: flex;
+    justify-content: space-between;
+    color: #1975FF;
+    align-self: center;
+}
+.socials i{
+    margin-left: 5vw;
+}
 }
 
 @media screen and (max-width:768px){
-  nav{
-    flex-direction: column;
-    margin-left: 1px;
-    align-items: flex-start;
-    transform: translateX(-250px) ;
-  }  
-  .navlinks{
-    background-color: skyblue;
-    flex-direction: column;
-    width: 0px;
-    height: 0px;
-  }
+/*Start of header*/
+
+    .navlinks,
+#login-btn{
+    display: none;
 }
+#menu-btn{
+    display: block;
+}
+.dropdown-menu{
+    display: block;
+}
+
+/*End of header*/
+
+#landing-page{
+    display: flex;
+    /* flex-direction: column-reverse; */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+.intro-text{
+    
+    padding: 3% 5% 1% 5%;
+    font-size: 20px ;
+}
+h3 #hello{
+    font-size: 18px;
+}
+h3 #pudens{
+    color: #1975FF;
+}
+.intro-text p{
+    font-size: 15px;
+}
+.landing-btn-cont{
+    padding-top: 2%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.landing-btn{
+    font-size: 14px;
+    padding: 10px;
+    background-color: #1975ffaa;
+    color: #fff;
+    border: none;
+}
+.landing-btn:hover{
+    background-color: #1975FF;
+}
+.portait-cont img{
+    width: 80%;
+    height: 80%;
+}
+.portait-cont{
+    padding: 1% 0% 0% 10%;
+    /* background-color: peru; */
+}
+#about-me{
+    display: flex;
+    justify-content:center;
+    width: 80%;
+    margin:auto
+}
+
+#about-me-img{
+    width: 40vw;
+    height: inherit; 
+    background-color: #F1502F;
+}
+#about-me-img img{
+    width: 100%;
+    height: 100%;
+}
+#about-me-text{
+    margin-left: 3vw;
+    margin-top: -1vh;
+    width: 30vw;
+    height: fit-content;
+}
+.work-item-more{
+    width: 50%;
+    font-size: 100%;
+    margin: 0px 25%;
+    align-self: center;
+    background-color: #1975FF;
+   border: none;
+   color: #fff;
+   padding: .1vh 1vw;
+}
+.view-more-btns{
+   width: 12%;
+   margin: 2vh 44%;
+   background-color: #1975FF;
+   border: none;
+   color: #fff;
+   padding: .5vh 1vw;
+}
+#contact-me{
+    flex: 1;
+    padding: 6vh 5vw;
+    color: #1975FF;
+    width: 100%;
+}
+} 
+

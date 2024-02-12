@@ -1,11 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fasthand&display=swap');
 body{
+    font-family: "Quicksand",sans-serif;   
     padding: 0;
     margin: 0;
 }
-header{
-    color: #1975FF;
-    padding: 0px 40px;
+/*Start of header*/
+
+nav{
+    width: 100%;
 }
+.nav-cont{
+    padding: 0% 5% 0% 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+.dropdown-menu{
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 80px;
+    right: 0vw;
+    background-color: #908766;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    height: 0;
+    transition: height .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#menu-btn{
+    display: none;
+}
+.dropdown-menu.open{
+    height: fit-content;
+}
+.dropdown-menu li{
+    padding: .5vh .1vw;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: 30vw;
+}
+#logo{
+    text-decoration: none;
+    color: #000;
+    font-family: "Fasthand",sans-serif;
+}
+#logo:visited{
+    text-decoration: none;
+    color: #000;
+}
+.navlinks{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.navlinks a,
+li a{
+    padding: 10px;
+    text-decoration: none;
+    color:#000 ;
+
+}
+.navlinks a:hover,
+li a:hover{
+    color:#1975FF;
+}
+.navlinks #home{
+    text-decoration: overline;
+}
+#login-btn,
+#login-btn2{
+    font-size: 15px;
+    padding: 10px;
+    background-color: #1975ff9d;
+    color: #fff;
+    border: none;
+}
+
+#login-btn:hover,
+#login-btn2:hover{
+    background-color: #1975ff;
+}
+.linked-btn a,
+.linked-btn2 a{
+    color: #fff;
+    text-decoration: none;
+}
+.linked-btn a:visited,
+.linked-btn2 a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+
+/*End of header*/
 .signup-container{
     display:flex;
     justify-content: center;
@@ -15,6 +105,7 @@ header{
 #logo{
     text-decoration: none;
     color: #000;
+    font-family: "Fasthand",sans-serif;
 }
 #logo:visited{
     text-decoration: none;
@@ -89,6 +180,20 @@ header{
 /* 768px and 360 responsiveness*/
 
 @media screen and (max-width:768px) {
+    /*Start of header*/
+        
+    .navlinks,
+    #login-btn{
+        display: none;
+    }
+    #menu-btn{
+        display: block;
+    }
+    .dropdown-menu{
+        display: block;
+    }
+    
+    /*End of header*/
     .welcome-text{
         display: none;
     }
