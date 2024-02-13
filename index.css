@@ -390,6 +390,11 @@ p i{
     color: #fff;
     padding: 1vh;
 }
+#error{
+    position: absolute;
+    top: 0;
+    color: red;
+}
 .socials{
     /* background-color: antiquewhite; */
     display: flex;

@@ -130,7 +130,7 @@ li a:hover{
     align-content: center;
     width: 26vw;
     color: #fff;
-    height: 80vh;
+    height: fit-content;
     font-size: 1.3vw;
 }
 .signup-form i{
@@ -160,6 +160,42 @@ li a:hover{
     background-color: #fff;
     width: 100%;
 }
+.input-field input:focus{
+    outline: 0;
+}
+
+
+/*CSS for validation*/
+
+/* .success{
+    border: solid yellowgreen 2px;
+} */
+.error{
+    border: solid red 2px;
+}
+.input-field-cont .s-error{
+    color: red;
+    font-size: 10px;
+    height: fit-content;
+    background-color: wheat;
+    margin-top: 1%;
+    border-radius: 10px;
+    padding-left: 1%;
+}
+
+#s-success{
+    background-color: wheat;
+    border-radius: 10px;
+    color: green;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 0 1%;
+}
+
+/*End of CSS for form validation*/
+
+
+
 #submit-btn{
     margin-top: 5vh;
     font-size: 15px;

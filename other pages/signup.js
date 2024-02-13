@@ -1,13 +1,112 @@
 
-
-const menuBtn = document.querySelector("#menu-btn")
-const menuBtnIcon = document.querySelector("#menu-btn i")
-const dropDownMenu = document.querySelector(".dropdown-menu")
+//Responsive nav bar
+const menuBtn = document.querySelector("#menu-btn");
+const menuBtnIcon = document.querySelector("#menu-btn i");
+const dropDownMenu = document.querySelector(".dropdown-menu");
 
 menuBtn.onclick = function(){
-    dropDownMenu.classList.toggle("open")
-    const isOpen = dropDownMenu.classList.contains("open")
+    dropDownMenu.classList.toggle("open");
+    const isOpen = dropDownMenu.classList.contains("open");
     
-    menuBtnIcon.classList = isOpen? 'fa-solid fa-xmark': 'fa-solid fa-bars'
+    menuBtnIcon.classList = isOpen? 'fa-solid fa-xmark': 'fa-solid fa-bars';
     
 }
+
+//Signup Form validation
+const form = document.getElementById('signup-form');
+const username = document.getElementById('username');
+const email = document.getElementById('email');
+const pwd = document.getElementById('password');
+const cPwd = document.getElementById('confirm-password');
+
+const successMsg = document.getElementById('s-success');        //This line must go back into submitSucces after backed dvpmnt
+
+form.addEventListener('submit', e =>{
+    let errorCount = validateInputs();
+    if(errorCount>0){
+        e.preventDefault();
+    }
+    else{
+        submitSuccess();
+        e.preventDefault();                                     // This line prevents discrupts without backend
+    }
+
+});
+
+
+const submitSuccess = () =>{
+    successMsg.innerText = 'You have registered. Now login';
+    username.value = '';
+    email.value = '';
+    pwd.value = '';
+    cPwd.value = '';
+}
+
+
+const setError = (element,message) =>{
+    const inputCont = element.parentElement;
+    const inputControl = inputCont.parentElement;
+    const errorDisplay = inputControl.querySelector(".s-error");
+    errorDisplay.innerText = message;
+    inputCont.classList.add('error');
+    inputCont.classList.remove('success');
+
+    successMsg.innerText = '';                                  //Line for just the frontend design to remove the successmsg just in case of error
+};
+
+const setSuccess = element =>{
+    const inputCont = element.parentElement;
+    const inputControl = inputCont.parentElement;
+    const errorDisplay = inputControl.querySelector(".s-error");
+    errorDisplay.innerText = '';
+    inputCont.classList.remove('error');
+    inputCont.classList.add('success');
+};
+
+
+
+const validateInputs = () =>{
+    let errorCount = 0;
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const pwdValue = pwd.value.trim();
+    const cPwdValue = cPwd.value.trim();
+
+    if(usernameValue===''){
+        setError(username, 'Username is required');
+        errorCount++;
+    }else{
+        setSuccess(username);
+    }
+
+
+    if(emailValue===''){
+        setError(email, 'Email is required');
+        errorCount++;
+    }else{
+        setSuccess(email);
+    }
+
+
+    if(pwdValue===''){
+        setError(pwd, 'Password is required');
+        errorCount++;
+    }else if(pwdValue.length < 8){
+        setError(pwd, 'Password length must be 8');
+        errorCount++;
+    }
+    else{
+        setSuccess(pwd);
+    }
+
+    if(cPwdValue !== pwdValue ){
+        setError(cPwd, 'Passwords do not match');
+        errorCount++;
+    }
+    else if(pwdValue===cPwdValue && pwdValue!==''){
+        setSuccess(cPwd);
+    }
+return errorCount;
+
+}
+

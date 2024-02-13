@@ -111,7 +111,7 @@ li a:hover{
 /*End of header*/
 
 .login-container{
-    padding: 20vh;
+    padding: 5vh 20vh;
     display:flex;
     justify-content: center;
     width: 90vw;
@@ -134,7 +134,7 @@ li a:hover{
     align-content: center;
     width: 25vw;
     color: #fff;
-    height: 50vh;
+    height: fit-content;
 }
 .login-form i{
     color: #1975FF;
@@ -158,6 +158,9 @@ li a:hover{
     background-color: #fff;
     width: 100%;
 }
+.input-field input:focus{
+   outline: 0;
+}
 #submit-btn{
     margin-top: 4vh;
     font-size: 1.1vw;
@@ -174,6 +177,30 @@ li a:hover{
     color: #fff;
     font-weight: 700;
 }
+
+.l-error{
+    color: red;
+    background-color: wheat;
+    padding: 0 10px;
+    font-size: 10px;
+    height: fit-content;
+    margin-top: 1%;
+    border-radius: 10px;
+}
+.l-success{
+    font-size: 10px;
+    background-color: wheat;
+    padding: 0 1%;
+    color: green;
+    border-radius: 12px;
+}
+.error{
+    border: 2px red solid;
+}
+/* .success{
+    border: 2px greenyellow solid;
+} */
+
 
 
 

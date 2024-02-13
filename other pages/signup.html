@@ -8,7 +8,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 	 integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
 	 crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Login</title>
+    <title>Signup</title>
 </head>
 <body>
     <nav>
@@ -44,44 +44,48 @@
             <p>Start your journey with me</p>
         </div>
         <div class="signup-form">
-            <form action="submit" class="auth-forms">
+            <form action="./signup.html" id="signup-form" class="auth-forms">
                 <h2>Create Account</h2>
                 <div class="input-field-cont">
                     <label for="username">Username</label>
                     <div class="input-field">
                         <i class="fa-regular fa-user"></i>
-                        <input type="text" id="username"> 
-                    </div>   
+                        <input type="text" id="username" name="username"> 
+                    </div>  
+                    <div class="s-error"></div> 
                 </div>
                 <div class="input-field-cont">
                     <label for="email">Email</label>
                     <div class="input-field">
                         <i class="fa-regular fa-envelope"></i>
-                        <input type="email" id="email"> 
+                        <input type="text" id="email" name="email"> 
                     </div>   
+                    <div class="s-error"></div> 
                 </div>
                 <div class="input-field-cont">
                     <label for="password">Password</label>
                     <div class="input-field">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="password"> 
+                        <input type="password" id="password" name='password'> 
                     </div>   
+                    <div class="s-error"></div> 
                 </div>
                 <div class="input-field-cont">
                     <label for="confirm-password">Confirm Password</label>
                     <div class="input-field">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="confirm-password"> 
-                    </div>   
+                        <input type="password" id="confirm-password" name="passwordC"> 
+                    </div>  
+                    <div class="s-error"></div>  
                 </div>
-                
-                <button id="submit-btn">Submit</button>
+                <div id="s-success"></div>  
+                <button id="submit-btn" type="submit">Submit</button>
                 <p class="login-from-signup">Already registered?<a href="./login.html">Log in</a></p>
 
 
             </form>
         </div>
     </div>
-    <script src="signup.js"></script>
+    <script defer src="signup.js"></script>
 </body>
 </html>

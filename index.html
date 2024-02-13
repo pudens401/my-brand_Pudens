@@ -231,18 +231,20 @@
                 </div>
             </div>
             <div class="send-message">
+
+                <div id="error"></div>
                 <form id="m-form" action="">
                     <div class="m-input">
                         <label for="m-name">Your name</label>
-                        <input type="text" id="m-name" name="sender" required>
+                        <input type="text" id="m-name" name="m-name">
                     </div>
                     <div class="m-input">
                         <label for="m-email">Your email(optional)</label>
-                        <input type="email" id="m-email" name="email">
+                        <input type="email" id="m-email" name="m-email">
                     </div>
                     <div class="m-input">
                         <label for="m-message">Your message</label>
-                        <textarea name="message" id="m-message" cols="30" rows="10"></textarea>
+                        <textarea name="m-message" id="m-message" cols="30" rows="10"></textarea>
                     </div>
                     <button id="m-submit" type="submit">
                         Send a message<i class="fa-solid fa-paper-plane"></i>
