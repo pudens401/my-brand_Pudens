@@ -29,7 +29,7 @@ form.addEventListener('submit', e =>{
     }
     else{
         showSuccess();
-        e.preventDefault();                                     // This line prevents discrupts without backend
+        // e.preventDefault();                                     // This line prevents discrupts without backend
     }
 
 });

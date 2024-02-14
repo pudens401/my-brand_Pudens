@@ -83,11 +83,13 @@
                     NEW BLOG
                 </div>
                 <div id="blog-inputs">
-                    <input name="blogTitle" type="text" placeholder="TITLE" required>
+                    <input name="blogTitle" id="add-blog-title" type="text" placeholder="TITLE" required>
                     <textarea name="blogin" id="add-blog-text" cols="30" rows="10">
                         Type your blog here...
                     </textarea>
+                    <div id="add-blog-error"></div>
                     <div id="blog-image-p">
+                        <input type="file" id="new-blog-pic">
                         <i class="fa-solid fa-image"></i>
                     </div>
                 </div>
@@ -224,6 +226,7 @@
              </div>
         </div>
     </div>
-    <script src="Dashboard-landing.js"></script>
+    <script type="module" src="Dashboard-landing.js"></script>
 </body>
 </html>
+
