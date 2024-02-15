@@ -13,8 +13,7 @@ menuBtn.onclick = function(){
 }
 
 
-    //Main body
-
+    //Blog add validation, saving and loading
 
 let blogs = [];
 loadBlogs();
@@ -42,8 +41,8 @@ blogSubmitBtn.addEventListener("click",()=>{
         setError(".Body can't be empty or only a placeholder");
     }else{
         addBlog(blogTitleValue,blogBodyValue,imgData);
-        blogBodyValue= '';
-        blogTitleValue = '';
+        blogBody.innerText= '';
+        blogTitle.innerText = '';
         imgData = '';
         // clearInputs(blogTitleValue,blogBodyValue);
     }
@@ -57,15 +56,10 @@ blogSubmitBtn.addEventListener("click",()=>{
 
 blogImage.addEventListener('change', (event) => {
     const image = event.target.files[0]
-
-    // Create file reader object
     const reader = new FileReader()
-
-    // Convert image to data URL
     reader.readAsDataURL(image)
 
     reader.addEventListener('load', () => {
-        // Save data URL to local storage
         imgData = reader.result;
     })
 })
@@ -80,6 +74,8 @@ const setError = (msg)=>{
     errorDiv.innerText = "Please solve these errors\n"+msg
 }
 
+
+//Add blogs
 const addBlog = (title,body,imgData)=>{
     let newBlogItem = {
         title:title,
@@ -96,13 +92,14 @@ function saveBlogs() {                                            //saveblgs to 
     displayBlogs();
 }
 
-
+//Fetch blogs from localstorage
 function loadBlogs() {
     const storedBlogs = localStorage.getItem('blogs');
     blogs = storedBlogs ? JSON.parse(storedBlogs) : [];
 }
 
 
+//Display recent blogs in the recent blogs section
 
 function displayBlogs() {
     const recentBlogsList = document.querySelector(".d-recent-blogs-cont");
@@ -132,14 +129,17 @@ function displayBlogs() {
         let recentStatIcons = document.createElement('div');
         recentStatIcons.classList.add('r-blog-stat-icons');
         let rLikeIcon = document.createElement('i');
-        rLikeIcon.textContent = '12';
+        // rLikeIcon.textContent = '12';
         recentStatIcons.classList.add('fa-solid','fa-thumbs-up');
         let rCommentIcon = document.createElement('i');
-        rCommentIcon.textContent='13';
-        recentStatIcons.classList.add('fa-solid','fa-comments');
+        // rCommentIcon.textContent='13';
+        rCommentIcon.classList.add('fa-solid','fa-comments');
 
         recentStatIcons.appendChild(rLikeIcon);
+        rLikeIcon.innerText='12';
         recentStatIcons.appendChild(rCommentIcon);
+        rCommentIcon.innerText='12';
+        
 
         recentBlogTitle.appendChild(recentBlogTitleHeader);
         recentBlogTitle.appendChild(recentStatIcons);
@@ -164,7 +164,8 @@ function displayBlogs() {
         blogItemDiv.appendChild(rBlogManageIcons);
         recentBlogsList.appendChild(blogItemDiv);
 
-        rDeleteIcon.addEventListener('click',(index)=>{
+        rDeleteIcon.addEventListener('click',()=>{
+            let index = blogs.indexOf(blog);
             blogs.splice(index,1);
             saveBlogs();
             displayBlogs();
@@ -174,4 +175,60 @@ function displayBlogs() {
 
 
 
-export {blogs,loadBlogs};
+//Display messages
+
+let receivedMessages = [];
+loadMessages();
+displayMessages();
+
+function loadMessages(){
+    const savedMessages = localStorage.getItem('sentMessages');
+    receivedMessages = savedMessages?JSON.parse(savedMessages):[];
+}
+
+function saveMessage(){
+    localStorage.setItem('sentMessages', JSON.stringify(receivedMessages));
+}
+
+function displayMessages(){
+    let recentMessagesCont = document.querySelector('.recent-messages-cont');
+    recentMessagesCont.innerHTML = '';
+
+
+    receivedMessages.forEach((msg)=>{
+
+    let messageItem = document.createElement('div');
+    messageItem.classList.add('d-m-item');
+
+    let messageId = document.createElement('div');
+    messageId.classList.add('m-id');
+    let messageIdName = document.createElement('p');
+    messageIdName.classList.add('m-name');
+    messageIdName.innerText = msg.sender.slice(0,7)+'...';
+    let messageIdEmail = document.createElement('p');
+    messageIdEmail.classList.add('m-email');
+    messageIdEmail.innerText=msg.email.slice(0,5)+'...';
+    let messageIdIcon = document.createElement('i');
+    messageIdIcon.classList.add('fa-solid','fa-envelope-open-text');
+    messageId.appendChild(messageIdName);
+    messageId.appendChild(messageIdEmail);
+    messageId.appendChild(messageIdIcon);
+
+    let messageBody = document.createElement('div');
+    messageBody.classList.add('m-body');
+    messageBody.innerText = msg.message.slice(0,100)+'...';
+
+    messageItem.appendChild(messageId);
+    messageItem.appendChild(messageBody);
+
+    recentMessagesCont.appendChild(messageId);
+    recentMessagesCont.appendChild(messageBody);
+
+})
+
+}
+
+
+
+
+// export {blogs,loadBlogs};

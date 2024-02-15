@@ -13,11 +13,21 @@ menuBtn.onclick = function(){
 }
 
 //Signup Form validation
+
+let users = []
+loadUsers();
+
+
 const form = document.getElementById('signup-form');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
 const pwd = document.getElementById('password');
 const cPwd = document.getElementById('confirm-password');
+
+let usernameValue = username.value.trim();  
+let emailValue = email.value.trim();
+let pwdValue = pwd.value.trim();
+let cPwdValue = cPwd.value.trim();
 
 const successMsg = document.getElementById('s-success');        //This line must go back into submitSucces after backed dvpmnt
 
@@ -29,6 +39,7 @@ form.addEventListener('submit', e =>{
     else{
         submitSuccess();
         e.preventDefault();                                     // This line prevents discrupts without backend
+        storeUser();
     }
 
 });
@@ -67,10 +78,10 @@ const setSuccess = element =>{
 
 const validateInputs = () =>{
     let errorCount = 0;
-    const usernameValue = username.value.trim();
-    const emailValue = email.value.trim();
-    const pwdValue = pwd.value.trim();
-    const cPwdValue = cPwd.value.trim();
+     usernameValue = username.value.trim();
+     emailValue = email.value.trim();
+     pwdValue = pwd.value.trim();
+    cPwdValue = cPwd.value.trim();
 
     if(usernameValue===''){
         setError(username, 'Username is required');
@@ -110,3 +121,23 @@ return errorCount;
 
 }
 
+
+function storeUser(){
+    let newUser = {
+        u_name :usernameValue,
+        u_email:emailValue,
+        u_password:pwdValue,
+    }
+
+    users.push(newUser);
+    saveUsers();
+}
+
+function saveUsers(){
+    localStorage.setItem('users',JSON.stringify(users));
+}
+
+function loadUsers(){
+    const existingUsers = localStorage.getItem('users');
+    users = existingUsers?JSON.parse(existingUsers):[];
+}

@@ -19,8 +19,14 @@ menuBtn.onclick = function(){
 const uName = document.getElementById("username");
 const pwd = document.getElementById('password');
 const form = document.getElementById('login-form');
-
+let uNameValue = uName.value.trim();
+let pwdValue = pwd.value.trim();
 const successCont = document.querySelector(".l-success");
+
+let users = [];
+loadUsers();
+
+
 
 form.addEventListener('submit', e =>{
     let errorCount = validateInputs();
@@ -28,8 +34,13 @@ form.addEventListener('submit', e =>{
         e.preventDefault();
     }
     else{
-        showSuccess();
-        // e.preventDefault();                                     // This line prevents discrupts without backend
+        let status = findUser();
+        if(status){
+            showSuccess();
+        }else{
+            e.preventDefault();  
+        }
+
     }
 
 });
@@ -65,8 +76,8 @@ const showSuccess = ()=>{
 const validateInputs = ()=>{
     let errorCount = 0;
 
-    const uNameValue = uName.value.trim();
-    const pwdValue = pwd.value.trim();
+    uNameValue = uName.value.trim();
+    pwdValue = pwd.value.trim();
 
     if(uNameValue===''){
         setError(uName,'User name must not be empty');
@@ -91,3 +102,30 @@ const validateInputs = ()=>{
 
 }
 
+const findUser = ()=>{
+
+    for(let i=0;i<users.length;i++){
+
+        let obj = users[i];
+        let storedName = obj.u_name;
+        let storedPwd = obj.u_password;
+
+        if(storedName===uNameValue&&storedPwd===pwdValue){
+            return true;
+        }else if(storedName===uNameValue&&storedPwd!==pwdValue){
+            setError(pwd,'Password is not true');
+        }else if(storedName!==uNameValue){
+            setError(uName,'User not found');
+        }
+
+    }
+
+    return false;
+
+
+}
+
+function loadUsers(){
+    const existingUsers = localStorage.getItem('users');
+    users = existingUsers?JSON.parse(existingUsers):[];
+}

@@ -324,6 +324,7 @@ h3 #pudens{
     display: flex;
     align-items: center;
 }
+
 .linked-text a{
     display:contents; 
    color: #1975FF;

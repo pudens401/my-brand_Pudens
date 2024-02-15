@@ -401,6 +401,9 @@ textarea:focus{
 .s-m-id .fa-envelope{
     color: rgb(196, 0, 0);
 }
+.s-m-id .fa-trash{
+    color: rgb(196, 0, 0);
+}
 .s-m-body{
     width: 95%;
     margin-right: 0;
