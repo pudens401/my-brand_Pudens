@@ -215,6 +215,15 @@ li a:hover{
     padding: 2%;
     margin-bottom: 20%;
 }
+ .s-error{
+    color: red;
+    font-size: 10px;
+    height: fit-content;
+    background-color: wheat;
+    margin-top: 1%;
+    border-radius: 10px;
+    padding-left: 1%;
+}
 #comment-send{
     width: 48%;
     margin-right: 0px;

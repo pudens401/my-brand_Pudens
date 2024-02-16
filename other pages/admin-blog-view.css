@@ -14,6 +14,36 @@ button{
     border-bottom: gray solid 2px;
     color: #fff;
 }
+#d-drop-left{
+    height: fit-content;
+    align-self: baseline;
+    font-size: 2.5vw;
+    display: none;
+    
+    }
+    #d-drop-left i{
+        color: #000;
+        align-self: baseline;
+    }
+    .drop-menu{
+        background-color: rgba(0, 183, 255, 0.797);
+        display: none;
+        flex-direction: column;
+        color: #1975ff;
+        width: fit-content;
+        padding: 0vh 1vw;
+        height: 0px;
+        overflow: hidden;
+        border-right: 1px #1975ff solid;
+        height: 0px;
+        overflow: hidden;
+        position: fixed;
+        top: 10vh;
+        left: 0;
+    }
+    .drop-menu.open{
+        height: fit-content;
+    }
 .d-logo{
     color: #1975ff;
     width: 10vw;

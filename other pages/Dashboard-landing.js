@@ -82,7 +82,7 @@ const addBlog = (title,body,imgData)=>{
         body:body,
         image:imgData
     } ;
-    blogs.push(newBlogItem);
+    blogs.unshift(newBlogItem);
     saveBlogs();
 }
 
@@ -150,8 +150,15 @@ function displayBlogs() {
         rBlogManageIcons.classList.add('r-blog-manage-icons');
         let rOpenIcon = document.createElement('i');
         rOpenIcon.classList.add('fa-solid','fa-square-arrow-up-right');
+        rOpenIcon.onclick=function(){
+            openBlog(index);
+        }
         let rEditIcon = document.createElement('i');
         rEditIcon.classList.add('fa-solid','fa-square-pen');
+        rEditIcon.onclick=function(){
+            editBlog(index);
+        }
+
         let rDeleteIcon = document.createElement('i');
         rDeleteIcon.classList.add('fa-solid','fa-trash');
 
@@ -171,6 +178,15 @@ function displayBlogs() {
             displayBlogs();
         })
     });
+}
+
+
+
+function openBlog(i){
+    window.location.href = 'admin-blog-view.html?username=&password=&blogIndex='+i;
+}
+function editBlog(i){
+    window.location.href = 'admin-blog-edit.html?username=&password=&blogIndex='+i;
 }
 
 

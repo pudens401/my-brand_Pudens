@@ -138,10 +138,14 @@ function showRecentBlogs(){
 const homeBlogs = document.querySelector(".recent-blogs-cont");
 homeBlogs.innerHTML = '';
 
-for(let i=blogs.length-1;i>blogs.length-4;i--){
+for(let i=0;i<3;i++){
 
     let homeBlog = document.createElement('article');
     homeBlog.classList.add('recent-blog');
+    homeBlog.onclick = ()=>{
+        window.location.href = "./other pages/individual-blog.html?blogIndex="+i;
+    }
+
 
     let homeBlogImage = document.createElement('img');
     if(blogs[i].image){

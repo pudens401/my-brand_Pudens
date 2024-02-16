@@ -36,6 +36,8 @@ form.addEventListener('submit', e =>{
     else{
         let status = findUser();
         if(status){
+            const errorDiv = inputController.querySelector('.l-error');
+            errorDiv.innerText = "";
             showSuccess();
         }else{
             e.preventDefault();  
