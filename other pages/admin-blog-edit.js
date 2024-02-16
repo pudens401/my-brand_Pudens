@@ -105,10 +105,7 @@ let imgData ='';
 
 let bodyValue = blogTextArea.value.trim();
 let titleValue = blogMainTitle.value;
-if(imgData){
-    let imageValue = imgData;
-}
-
+let imageValue = imgData;
 
 
 blogMainImageUpload.addEventListener('change', (event) => {
@@ -129,7 +126,9 @@ blogSaveIcon.onclick = function(){
     let titleValue = blogMainTitle.value;   
     let imageValue = imgData;
     blogs[blogIndex].body = bodyValue;
+    if(imgData){
     blogs[blogIndex].image = imageValue;
+    }
     saveBlogs();
     window.history.back();
 }
