@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fasthand&display=swap');
 body{                       /*032426  93FF4B*/
     margin: 0;
     padding: 0;
@@ -15,13 +17,46 @@ button{
 }
 .d-nav{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     border-bottom: gray solid 2px;
+    align-items: baseline;
     color: #fff;
 }
-.d-logo{
+#d-drop-left{
+height: fit-content;
+align-self: baseline;
+font-size: 2.5vw;
+display: none;
+
+}
+#d-drop-left i{
+    color: #000;
+    align-self: baseline;
+}
+.drop-menu{
+    background-color: rgba(0, 183, 255, 0.797);
+    display: none;
+    flex-direction: column;
     color: #1975ff;
-    width: 10vw;
+    width: fit-content;
+    padding: 0vh 1vw;
+    height: 0px;
+    overflow: hidden;
+    border-right: 1px #1975ff solid;
+    height: 0px;
+    overflow: hidden;
+    position: fixed;
+    top: 10vh;
+    left: 0;
+}
+.drop-menu.open{
+    height: fit-content;
+}
+.d-logo{
+    font-family: "Fasthand",sans-serif;
+    /* color: #1975ff; */
+    color: #000;
+    width: 12vw;
     align-self: flex-end;
     font-size: 5vh;
 }
@@ -29,8 +64,17 @@ button{
     display: flex;
     justify-content: space-between;
     height: 10vh;
-    width: 50%;
+    width:60vw;
     color: #1975ff;
+    /* background-color: gray; */
+    align-self: center;
+    margin-left: 1.5vw;
+}
+.d-middle-header h1{
+    margin-left: 35%;
+} 
+#user-img{
+    border-radius: 50%;
 }
 .d-middle-header button{
     height: 50%;
@@ -48,38 +92,7 @@ button{
 
 .d-cont{
     display: flex;
-
 }
-#d-drop-left{
-    height: fit-content;
-    align-self: baseline;
-    font-size: 2.5vw;
-    display: none;
-    
-    }
-    #d-drop-left i{
-        color: #000;
-        align-self: baseline;
-    }
-    .drop-menu{
-        background-color: rgba(0, 183, 255, 0.797);
-        display: none;
-        flex-direction: column;
-        color: #1975ff;
-        width: fit-content;
-        padding: 0vh 1vw;
-        height: 0px;
-        overflow: hidden;
-        border-right: 1px #1975ff solid;
-        height: 0px;
-        overflow: hidden;
-        position: fixed;
-        top: 10vh;
-        left: 0;
-    }
-    .drop-menu.open{
-        height: fit-content;
-    }
 .d-menu{
     display: flex;
     flex-direction: column;
@@ -92,15 +105,21 @@ button{
 }
 .d-menu-item{
     display: flex;
+    gap: .5vw;
     margin:2vh 0px;
 }
-#d-logout{
+
+.d-menu-item a{
+    text-decoration: none;
+    color: #1975ff;
+} 
+
+#d-logout a{
     color: red;
     margin-top:10vh;
     margin-right: 0;
     margin-left: auto;
 }
-
 
     /*End of header*/
 /*End of common*/

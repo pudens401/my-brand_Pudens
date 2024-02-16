@@ -105,7 +105,10 @@ let imgData ='';
 
 let bodyValue = blogTextArea.value.trim();
 let titleValue = blogMainTitle.value;
-let imageValue = imgData;
+if(imgData){
+    let imageValue = imgData;
+}
+
 
 
 blogMainImageUpload.addEventListener('change', (event) => {
