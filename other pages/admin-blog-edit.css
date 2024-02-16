@@ -1,20 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Fasthand&display=swap');
 body{                       /*032426  93FF4B*/
-    margin: 0;
+    font-family: "QUicksand",sans-serif;
+    margin-left: 1vw;
     padding: 0;
     background-color: #fff;
 }
-
-
-/*Start of Common*/
-    /*Start of header*/
-
 button{
     background-color: #1975ff;
     color: #fff;
     border: none;
 }
+
+/*Start of header*/
 .d-nav{
     display: flex;
     justify-content: space-evenly;
@@ -90,6 +88,8 @@ display: none;
     font-weight: 900;
 }
 
+/*End of header*/
+
 .d-cont{
     display: flex;
 }
@@ -114,11 +114,15 @@ display: none;
     color: #1975ff;
 } 
 
-#d-logout a{
+#d-logout{
     color: red;
     margin-top:10vh;
     margin-right: 0;
     margin-left: auto;
+}
+#d-logout a{
+    color: red;
+    text-decoration: none;
 }
 
     /*End of header*/
