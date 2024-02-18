@@ -44,7 +44,7 @@ function addMessage(){
         email:emailValue,
         message:messageValue
     }
-    sentMessages.push(newMessage);
+    sentMessages.unshift(newMessage);
     saveMessage();
     mName.value = '';
     mMessage.value = '';
@@ -146,7 +146,6 @@ for(let i=0;i<3;i++){
         window.location.href = "./other pages/individual-blog.html?blogIndex="+i;
     }
 
-
     let homeBlogImage = document.createElement('img');
     if(blogs[i].image){
         homeBlogImage.setAttribute('src',blogs[i].image);
@@ -177,7 +176,7 @@ for(let i=0;i<3;i++){
     let likeIconCont = document.createElement('p');
     let dlikeIcon = document.createElement('i');
     dlikeIcon.classList.add('fa-solid','fa-thumbs-up')
-    likeIconCont.textContent='12';
+    likeIconCont.textContent=blogs[i].likeCount;
     likeIconCont.appendChild(dlikeIcon);
     likeAnalyticsCont.appendChild(likeIconCont);
 
@@ -186,7 +185,7 @@ for(let i=0;i<3;i++){
     let commentIconCont = document.createElement('p');
     let dCommentIcon = document.createElement('i');
     dCommentIcon.classList.add('fa-solid','fa-comments');
-    commentIconCont.textContent='12';
+    commentIconCont.textContent=blogs[i].comments.length;
     commentIconCont.appendChild(dCommentIcon);
     commentAnalyticsCont.appendChild(commentIconCont);
 
@@ -209,7 +208,6 @@ for(let i=0;i<3;i++){
     
 
     homeBlogs.appendChild(homeBlog);
-
 
 }
 }

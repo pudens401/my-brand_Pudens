@@ -33,13 +33,13 @@ const commentBtn = document.getElementById('comment-send');
 
 
 displayBlog(blogIndex);
+displayComments(blogIndex);
+displayAnalytics(blogIndex);
 
-let comments = [];
 
 function displayBlog(i){
     
     let blog = blogs[i];
-
     const blogMain = document.querySelector('.blog-main');
     blogMain.innerHTML = '';
     
@@ -71,17 +71,18 @@ function displayBlog(i){
 
 
     
-    blog.commentCount = 0;
-    blog.likeCount = 0;
 
 
     //Commenting section
     
     
 
-    commentBtn.addEventListener('click',addComment); 
+    commentBtn.addEventListener('click',()=>{
+        addComment(blogIndex);
+        displayComments();
+    }); 
 
-    function addComment(){
+    function addComment(index){
         let commentAreaValue = commentArea.value.trim();
         if(commentAreaValue===''){
             setError("Comment can't be empty");
@@ -91,18 +92,12 @@ function displayBlog(i){
                 cName: 'Anonymous User',
                 cBody:commentAreaValue
             }
-            comments.unshift(newComment);
-            saveComments();
+            blogs[index].comments.unshift(newComment);
+            saveBlogs();
+            
         }
 
     }
-
-
-
-
-
-
-
 
 }
 
@@ -119,6 +114,95 @@ const setSuccess = ()=>{
     commentArea.value = '';
 }
 
-function saveComments(){
-    localStorage.setItem('comments',JSON.stringify(comments));
+function saveBlogs() {                                            //saveblgs to local storage
+    localStorage.setItem('blogs', JSON.stringify(blogs));
+}
+
+
+function displayComments(i){
+    let comments = blogs[i].comments
+
+
+    const commentsCont = document.querySelector('.comments-cont');
+    commentsCont.innerHTML = '';
+
+    comments.forEach(comment => {
+        const commentItem = document.createElement('div');
+        commentItem.classList.add('comment-item');
+    
+        const commentHeader = document.createElement('div');
+        commentHeader.classList.add('comment-header');
+        const cnameCont = document.createElement('div');
+        cnameCont.classList.add('c-name');
+        const pPicCont = document.createElement('p');
+        const pPic = document.createElement('span');
+        pPic.setAttribute('id','p-pic')
+        pPic.innerText = 'AU';
+        pPicCont.appendChild(pPic);
+        let cName = document.createElement('p');
+        cName.innerText = comment.cName;
+    
+        cnameCont.appendChild(pPicCont);
+        cnameCont.appendChild(cName);
+    
+        const dateCont = document.createElement('p');
+        dateCont.innerText = '12/12/2024';
+    
+        commentHeader.appendChild(cnameCont);
+        commentHeader.appendChild(dateCont);
+    
+        const commentBody = document.createElement('div');
+        commentBody.classList.add('comment-body');
+        let commentBodyText = document.createElement('p');
+        commentBody.appendChild(commentBodyText);
+        commentBody.innerText = comment.cBody
+
+    
+        commentItem.appendChild(commentHeader);
+        commentItem.appendChild(commentBody); 
+
+        commentsCont.appendChild(commentItem);
+    });
+    
+
+}
+
+function displayAnalytics(i){
+
+    const analyticsCont = document.querySelector('.comment-analytics');
+    analyticsCont.innerHTML = '';
+
+    const likeCont = document.createElement('div');
+    likeCont.classList.add('analytic-cont');
+    let likeBtnCont = document.createElement('p');
+    likeBtnCont.onclick = function (){
+        blogs[blogIndex].likeCount++;
+        saveBlogs();
+    }
+    likeBtnCont.innerText  = blogs[i].likeCount;
+    const likeBtn = document.createElement('i');
+    likeBtn.classList.add("fa-solid","fa-thumbs-up");
+    likeBtnCont.addEventListener('click',()=>{
+        blogs[blogIndex].likeCount++;
+    })
+    likeBtnCont.appendChild(likeBtn);
+    likeCont.appendChild(likeBtnCont);
+
+    const commentCont = document.createElement('div');
+    commentCont.classList.add('analytic-cont');
+    let commentBtnCont = document.createElement('p');
+    commentBtnCont.innerText = blogs[i].comments.length;
+    const commentBtn = document.createElement('i');
+    commentBtn.classList.add("fa-solid","fa-comment");
+    commentBtnCont.appendChild(commentBtn);
+    commentCont.appendChild(commentBtnCont);
+
+    const blogDateCont = document.createElement('div');
+    const blogDate = document.createElement('p');
+    blogDate.innerText = '12/12/24';
+
+    analyticsCont.appendChild(likeCont);
+    analyticsCont.appendChild(commentCont);
+    analyticsCont.appendChild(blogDateCont);
+
 }

@@ -15,6 +15,7 @@ menuBtn.onclick = function(){
 
     //Blog add validation, saving and loading
 
+    
 let blogs = [];
 loadBlogs();
 displayBlogs();
@@ -79,8 +80,10 @@ const setError = (msg)=>{
 const addBlog = (title,body,imgData)=>{
     let newBlogItem = {
         title:title,
+        comments:[],
         body:body,
-        image:imgData
+        image:imgData,
+        likeCount:0
     } ;
     blogs.unshift(newBlogItem);
     saveBlogs();
@@ -136,9 +139,9 @@ function displayBlogs() {
         rCommentIcon.classList.add('fa-solid','fa-comments');
 
         recentStatIcons.appendChild(rLikeIcon);
-        rLikeIcon.innerText='12';
+        rLikeIcon.innerText=blog.likeCount;
         recentStatIcons.appendChild(rCommentIcon);
-        rCommentIcon.innerText='12';
+        rCommentIcon.innerText=blog.comments.length;
         
 
         recentBlogTitle.appendChild(recentBlogTitleHeader);
@@ -211,16 +214,20 @@ function displayMessages(){
     recentMessagesCont.innerHTML = '';
 
 
-    receivedMessages.forEach((msg)=>{
+    receivedMessages.forEach((msg, index)=>{
 
     let messageItem = document.createElement('div');
     messageItem.classList.add('d-m-item');
 
     let messageId = document.createElement('div');
     messageId.classList.add('m-id');
+    
     let messageIdName = document.createElement('p');
     messageIdName.classList.add('m-name');
     messageIdName.innerText = msg.sender.slice(0,7)+'...';
+    messageIdName.addEventListener('click',()=>{
+        openMessage(index);
+    })
     let messageIdEmail = document.createElement('p');
     messageIdEmail.classList.add('m-email');
     messageIdEmail.innerText=msg.email.slice(0,5)+'...';
@@ -242,6 +249,10 @@ function displayMessages(){
 
 })
 
+}
+
+function openMessage(i){
+    window.location.href = 'd-m-view2.html?msgIndex='+i;
 }
 
 

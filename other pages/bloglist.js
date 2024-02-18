@@ -105,7 +105,7 @@ function displayBlogs() {
         let blogSummaryHeader = document.createElement('h4');
         blogSummaryHeader.innerText = (blog.title);
         let blogSummaryBody = document.createElement('p');
-        blogSummaryBody.innerText = blog.body.slice(0,150)+'.....';
+        blogSummaryBody.innerText = blog.body.slice(0,100)+'.....';
 
         blogSummaryText.appendChild(blogSummaryHeader);
         blogSummaryText.appendChild(blogSummaryBody);
@@ -119,7 +119,7 @@ function displayBlogs() {
         let likeIconCont = document.createElement('p');
         let dlikeIcon = document.createElement('i');
         dlikeIcon.classList.add('fa-solid','fa-thumbs-up')
-        likeIconCont.textContent='12';
+        likeIconCont.textContent=blog.likeCount;
         likeIconCont.appendChild(dlikeIcon);
         
         likeAnalyticsCont.appendChild(likeIconCont);
@@ -129,7 +129,7 @@ function displayBlogs() {
         let commentIconCont = document.createElement('p');
         let dCommentIcon = document.createElement('i');
         dCommentIcon.classList.add('fa-solid','fa-comments');
-        commentIconCont.textContent='12';
+        commentIconCont.textContent=blog.comments.length;
         commentIconCont.appendChild(dCommentIcon);
         
         commentAnalyticsCont.appendChild(commentIconCont);
