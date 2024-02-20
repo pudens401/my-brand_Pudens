@@ -211,7 +211,7 @@ function saveMessage(){
 
 function displayMessages(){
     let recentMessagesCont = document.querySelector('.recent-messages-cont');
-    recentMessagesCont.innerHTML = '';
+    recentMessagesCont.innerHTML ='';
 
 
     receivedMessages.forEach((msg, index)=>{
