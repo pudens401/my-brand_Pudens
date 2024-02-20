@@ -114,16 +114,13 @@ display: none;
     color: #1975ff;
 } 
 
-#d-logout{
+.d-logout{
     color: red;
     margin-top:10vh;
     margin-right: 0;
     margin-left: auto;
 }
-#d-logout a{
-    color: red;
-    text-decoration: none;
-}
+
 
 
 

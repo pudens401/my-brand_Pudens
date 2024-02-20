@@ -14,12 +14,20 @@ menuBtn.onclick = function(){
 
 //Login btn change
 
+
+
+
+
 let params = new URLSearchParams(window.location.search);
-let login_status = params.get('user');
-let login_user = params.get('name');
+let login_user = params.get('user');
+let login_type = params.get('type');
+
+let login_user_og = localStorage.getItem('current_user');
+let login_type_og = localStorage.getItem('current_type');
+
 
 //Login/Logout
-if(login_status==='guest'){
+if(login_type_og){
     let login_btn = document.getElementById('login-btn')
     let login_btn2 = document.getElementById('login-btn2')
 
@@ -27,9 +35,15 @@ if(login_status==='guest'){
     login_btn2.innerText = 'Logout';
 
     login_btn.addEventListener('click',()=>{
+        localStorage.removeItem('current_user');
+        localStorage.removeItem('current_type');
+
         window.location.href = 'index.html'
     })
     login_btn2.addEventListener('click',()=>{
+        localStorage.removeItem('current_user');
+        localStorage.removeItem('current_type');
+
         window.location.href = 'index.html'
     })
 }
@@ -166,7 +180,7 @@ for(let i=0;i<3;i++){
     let homeBlog = document.createElement('article');
     homeBlog.classList.add('recent-blog');
     homeBlog.onclick = ()=>{
-        window.location.href = "./other pages/individual-blog.html?blogIndex="+i+"&name="+login_user+"&user="+login_status;
+        window.location.href = "./other pages/individual-blog.html?blogIndex="+i;
     }
 
     let homeBlogImage = document.createElement('img');

@@ -12,6 +12,20 @@ menuBtn.onclick = function(){
     
 }
 
+
+
+//Protected login form
+
+
+let login_status = localStorage.getItem('current_user');
+let login_type = localStorage.getItem('current_type');
+
+if(login_type==='guest'){
+    window.location.href = '../index.html';
+}else if(login_type==='admin'){
+    window.location.href = 'Dashboard-landing.html';
+}
+
 //Signup Form validation
 
 let users = []

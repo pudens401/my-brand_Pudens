@@ -25,12 +25,15 @@ function loadBlogs(){
 
 let urlParams = new URLSearchParams(window.location.search);
 let blogIndex = urlParams.get('blogIndex');
-let userName  = urlParams.get('name');
-let login_status = urlParams.get('user');
+// let login_user = urlParams.get('user');
+// let login_type = urlParams.get('type');
+
+let login_user_og = localStorage.getItem('current_user');
+let login_type_og = localStorage.getItem('current_type');
 
 
 //Login/Logout
-if(login_status==='guest'){
+if(login_type_og){
     let login_btn = document.getElementById('login-btn')
     let login_btn2 = document.getElementById('login-btn2')
 
@@ -38,12 +41,21 @@ if(login_status==='guest'){
     login_btn2.innerText = 'Logout';
 
     login_btn.addEventListener('click',()=>{
-        window.location.href = '../index.html'
+        localStorage.removeItem('current_user');
+        localStorage.removeItem('current_type');
+
+        window.location.href = 'individual-blog.html?blogIndex='+blogIndex;
     })
     login_btn2.addEventListener('click',()=>{
-        window.location.href = '../index.html'
+        localStorage.removeItem('current_user');
+        localStorage.removeItem('current_type');
+
+        window.location.href = 'individual-blog.html?blogIndex='+blogIndex;
     })
 }
+
+
+
 
 
 const commentSpaceCont = document.querySelector('.comment-space-cont');
@@ -108,7 +120,7 @@ function displayBlog(i){
         }else{
             setSuccess();
             let newComment ={
-                cName: userName,
+                cName:login_user_og?login_user_og:'Anonymous User',
                 cBody:commentAreaValue
             }
             blogs[index].comments.unshift(newComment);

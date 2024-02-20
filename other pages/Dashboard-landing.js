@@ -13,6 +13,35 @@ menuBtn.onclick = function(){
 }
 
 
+//protection
+let login_status = localStorage.getItem('current_user');
+let login_type = localStorage.getItem('current_type');
+
+if(login_type==='guest'||!login_type){
+    window.location.href = '../index.html';
+}
+
+
+
+
+//logout
+
+let logouts = document.querySelectorAll('.d-logout');
+
+logouts.forEach((logout)=>{
+    logout.addEventListener('click',()=>{
+        localStorage.removeItem('current_user');
+        localStorage.removeItem('current_type');
+        window.location.href = '../index.html'
+})
+
+})
+
+
+
+
+
+
     //Blog add validation, saving and loading
 
     
