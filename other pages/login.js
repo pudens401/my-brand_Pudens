@@ -35,12 +35,16 @@ form.addEventListener('submit', e =>{
     }
     else{
         let status = findUser();
-        if(status){
+        if(status === true){
             const errorDiv = inputController.querySelector('.l-error');
             errorDiv.innerText = "";
-            showSuccess();
-        }else{
+            // showSuccess();
+        }else if(status === false){
+            preventDefault();
+        }
+        else{
             e.preventDefault();  
+            window.location.href = '../index.html?user=guest&name='+status.slice(5);
         }
 
     }
@@ -111,18 +115,25 @@ const findUser = ()=>{
         let obj = users[i];
         let storedName = obj.u_name;
         let storedPwd = obj.u_password;
+        let privileges = obj.u_type;
 
-        if(storedName===uNameValue&&storedPwd===pwdValue){
+        if(storedName===uNameValue&&storedPwd===pwdValue&&privileges==='Admin'){
             return true;
-        }else if(storedName===uNameValue&&storedPwd!==pwdValue){
+        }else if(storedName===uNameValue&&storedPwd===pwdValue&&privileges==='guest'){
+            return 'guest'+storedName;
+        }
+        else if(storedName===uNameValue&&storedPwd!==pwdValue){
             setError(pwd,'Password is not true');
-        }else if(storedName!==uNameValue){
+            
+        }else /*if(storedName!==uNameValue)*/{
             setError(uName,'User not found');
+            
         }
 
     }
 
     return false;
+  
 
 
 }

@@ -12,6 +12,29 @@ menuBtn.onclick = function(){
     
 }
 
+//Login btn change
+
+let params = new URLSearchParams(window.location.search);
+let login_status = params.get('user');
+let login_user = params.get('name');
+
+//Login/Logout
+if(login_status==='guest'){
+    let login_btn = document.getElementById('login-btn')
+    let login_btn2 = document.getElementById('login-btn2')
+
+    login_btn.innerText = 'Logout';
+    login_btn2.innerText = 'Logout';
+
+    login_btn.addEventListener('click',()=>{
+        window.location.href = 'index.html'
+    })
+    login_btn2.addEventListener('click',()=>{
+        window.location.href = 'index.html'
+    })
+}
+
+
 //Message form validation 
 
 let sentMessages = [];
@@ -143,7 +166,7 @@ for(let i=0;i<3;i++){
     let homeBlog = document.createElement('article');
     homeBlog.classList.add('recent-blog');
     homeBlog.onclick = ()=>{
-        window.location.href = "./other pages/individual-blog.html?blogIndex="+i;
+        window.location.href = "./other pages/individual-blog.html?blogIndex="+i+"&name="+login_user+"&user="+login_status;
     }
 
     let homeBlogImage = document.createElement('img');

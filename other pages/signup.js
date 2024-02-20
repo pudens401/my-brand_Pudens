@@ -127,6 +127,7 @@ function storeUser(){
         u_name :usernameValue,
         u_email:emailValue,
         u_password:pwdValue,
+        u_type:'guest'
     }
 
     users.push(newUser);
