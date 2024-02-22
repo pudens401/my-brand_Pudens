@@ -137,7 +137,7 @@ function displayBlogs() {
         let dateAnalyticsCont = document.createElement('div');
         dateAnalyticsCont.classList.add('analytic-cont');
         let dateIconCont = document.createElement('p');
-        dateIconCont.textContent='12/12/2024';
+        dateIconCont.textContent=blog.date.slice(0,10);
         dateAnalyticsCont.appendChild(dateIconCont);
 
         blogSummaryAnalytics.appendChild(likeAnalyticsCont);

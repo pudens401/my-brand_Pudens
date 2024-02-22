@@ -368,9 +368,13 @@ h3 #pudens{
     color: #000;
     width: 15vw;
     padding: 1vh 10vw 5vh 5vw;
+    /* background-color: #130FF0; */
 }
 p i{
     color: #1975ff;
+}
+.formal-contacts p{
+    display: inline-flex;
 }
 .send-message{
     width: 30vw;
@@ -420,6 +424,10 @@ p i{
     display: flex;
     justify-content: space-between;
     color: #1975FF;
+}
+.socials a{
+    color: inherit;
+    text-decoration: none;
 }
 
 footer{

@@ -121,7 +121,8 @@ function displayBlog(i){
             setSuccess();
             let newComment ={
                 cName:login_user_og?login_user_og:'Anonymous User',
-                cBody:commentAreaValue
+                cBody:commentAreaValue,
+                date:new Date()
             }
             blogs[index].comments.unshift(newComment);
             saveBlogs();
@@ -177,7 +178,7 @@ function displayComments(i){
         cnameCont.appendChild(cName);
     
         const dateCont = document.createElement('p');
-        dateCont.innerText = '12/12/2024';
+        dateCont.innerText = comment.date.slice(0,10);
     
         commentHeader.appendChild(cnameCont);
         commentHeader.appendChild(dateCont);
@@ -186,7 +187,7 @@ function displayComments(i){
         commentBody.classList.add('comment-body');
         let commentBodyText = document.createElement('p');
         commentBody.appendChild(commentBodyText);
-        commentBody.innerText = comment.cBody
+        commentBody.innerText = comment.cBody;
 
     
         commentItem.appendChild(commentHeader);

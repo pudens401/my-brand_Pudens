@@ -170,7 +170,7 @@ function displayComments(i){
         cnameCont.appendChild(cName);
     
         const dateCont = document.createElement('p');
-        dateCont.innerText = '12/12/2024';
+        dateCont.innerText = comment.date.slice(0,10);
     
         commentHeader.appendChild(cnameCont);
         commentHeader.appendChild(dateCont);
@@ -216,7 +216,7 @@ function displayAnalytics(i){
 
     const blogDateCont = document.createElement('div');
     const blogDate = document.createElement('p');
-    blogDate.innerText = '12/12/24';
+    blogDate.innerText = blogs[i].date.slice(0,10)
 
     analyticsCont.appendChild(likeCont);
     analyticsCont.appendChild(commentCont);

@@ -12,7 +12,30 @@ menuBtn.onclick = function(){
     
 }
 
-//Login btn change
+let users = [];
+
+loadUsers();
+
+function loadUsers(){
+let savedUsers = localStorage.getItem('users');
+
+let defaultUser = [{
+    u_name:'admin',
+    u_password:'12345678',
+    u_email:'kunda@hh.org',
+    u_type:'admin'
+}];
+
+users=savedUsers?JSON.parse(savedUsers):defaultUser;
+saveUsers();
+}
+
+
+
+
+function saveUsers(){
+    localStorage.setItem('users',JSON.stringify(users));
+}
 
 
 
@@ -229,7 +252,7 @@ for(let i=0;i<3;i++){
     let dateAnalyticsCont = document.createElement('div');
     dateAnalyticsCont.classList.add('analytic-cont');
     let dateIconCont = document.createElement('p');
-    dateIconCont.textContent='12/12/2024';
+    dateIconCont.textContent=blogs[i].date.slice(0,10);
     dateAnalyticsCont.appendChild(dateIconCont);
 
     homeBlogAnalytics.appendChild(likeAnalyticsCont);

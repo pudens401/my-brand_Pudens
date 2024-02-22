@@ -130,7 +130,7 @@ function displayComments(i){
         cnameCont.appendChild(cName);
     
         const dateCont = document.createElement('p');
-        dateCont.innerText = '12/12/2024';
+        dateCont.innerText = comment.date.slice(0,10);
     
         commentHeader.appendChild(cnameCont);
         commentHeader.appendChild(dateCont);

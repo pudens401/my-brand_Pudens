@@ -112,7 +112,8 @@ const addBlog = (title,body,imgData)=>{
         comments:[],
         body:body,
         image:imgData,
-        likeCount:0
+        likeCount:0,
+        date:new Date()
     } ;
     blogs.unshift(newBlogItem);
     saveBlogs();
