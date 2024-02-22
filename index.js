@@ -22,7 +22,7 @@ let savedUsers = localStorage.getItem('users');
 let defaultUser = [{
     u_name:'admin',
     u_password:'12345678',
-    u_email:'kunda@hh.org',
+    u_email:'kundapudens@gmail.com',
     u_type:'admin'
 }];
 

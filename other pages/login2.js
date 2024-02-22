@@ -72,7 +72,7 @@ form.addEventListener('submit', e =>{
             
         }else{
             e.preventDefault();
-            setError(pwd,'user or password incorect');
+            setError(pwd,'email or password incorect');
             console.log('cred error');
         }
     }
@@ -113,8 +113,9 @@ const validateInputs = ()=>{
     uNameValue = uName.value.trim();
     pwdValue = pwd.value.trim();
 
+
     if(uNameValue===''){
-        setError(uName,'User name must not be empty');
+        setError(uName,'Email must not be empty');
         errorCount++;
     }else{
         setSuccess(uName);
@@ -142,7 +143,7 @@ const findUser = ()=>{
     pwdValue = pwd.value.trim();
     
     let status  = users.filter((user)=>{
-        return user.u_name===uNameValue&&user.u_password===pwdValue;  
+        return user.u_email===uNameValue&&user.u_password===pwdValue;  
     });
     if(status){
         return status[0];

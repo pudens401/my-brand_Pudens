@@ -210,12 +210,16 @@ function displayAnalytics(i){
     likeBtnCont.onclick = function (){
         blogs[blogIndex].likeCount++;
         saveBlogs();
+        window.location.reload();
     }
     likeBtnCont.innerText  = blogs[i].likeCount;
     const likeBtn = document.createElement('i');
     likeBtn.classList.add("fa-solid","fa-thumbs-up");
     likeBtnCont.addEventListener('click',()=>{
+        window.location.reload();
         blogs[blogIndex].likeCount++;
+        window.location.reload();
+        saveBlogs();
     })
     likeBtnCont.appendChild(likeBtn);
     likeCont.appendChild(likeBtnCont);
