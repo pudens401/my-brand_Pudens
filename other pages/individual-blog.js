@@ -109,8 +109,10 @@ function displayBlog(i){
     
 
     commentBtn.addEventListener('click',()=>{
+        window.location.reload();
         addComment(blogIndex);
-        displayComments();
+        
+        // displayComments();
     }); 
 
     function addComment(index){
@@ -124,6 +126,7 @@ function displayBlog(i){
                 cBody:commentAreaValue,
                 date:new Date()
             }
+            
             blogs[index].comments.unshift(newComment);
             saveBlogs();
             
