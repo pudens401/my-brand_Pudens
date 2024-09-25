@@ -1,0 +1,175 @@
+const form = document.getElementById('m-form');
+const mName = document.getElementById('m-name');
+const email = document.getElementById('m-email');
+const mMessage = document.getElementById('m-message');
+
+let mNameValue = mName.value.trim();
+let messageValue = mMessage.value.trim();
+let emailValue = email.value.trim();
+
+form.addEventListener('submit',e=>{
+   let errorCount = validateMessage();
+   if (errorCount>0){
+        e.preventDefault();
+   }else{
+        e.preventDefault();
+        sendMessage()
+   }
+    
+});
+
+function sendMessage(){
+    const url = "https://my-brand-backend-qcoe.onrender.com/messages/send"
+    const data = {
+        senderName:mNameValue,
+        senderEmail:emailValue,
+        messageBody:messageValue
+    }
+    const options = {
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(data)
+    }
+
+    fetch(url,options)
+    .then(response=>response.json())
+    .then((data)=>{
+        console.log(data)
+    })
+}
+
+//CS error handling
+const setError = (e,m)=>{
+    const inputCtrl = e.parentElement;
+
+    const errorDiv = inputCtrl.querySelector('.m-error');
+
+    errorDiv.innerText = m;
+}
+
+const setSuccess = (e)=>{
+
+    const inputCtrl = e.parentElement;
+
+    const errorDiv = inputCtrl.querySelector('.m-error');
+
+    errorDiv.innerText = '';
+
+    e.classList.add('.success');
+    e.classList.remove('.error');
+}
+
+const showSuccess = ()=>{
+    const successDiv = document.querySelector('.show-success');
+    successDiv.innerText = 'Message Sent successfully';
+}
+
+const validateMessage = ()=>{
+     mNameValue = mName.value.trim();
+    messageValue = mMessage.value.trim();
+    emailValue = email.value.trim();
+    let errorCount = 0;
+
+    if(mNameValue===''){
+        setError(mName,'Name must not be empty');
+        errorCount++;
+    }else {
+        setSuccess(mName);
+    }
+
+    if(messageValue===''){
+        setError(mMessage,'Message must not be empty');
+        errorCount++;
+    }else {
+        setSuccess(mMessage);
+    }
+
+    return errorCount;
+
+}
+
+let blogs;
+const loadBlogs = fetch("https://my-brand-backend-qcoe.onrender.com/blogs")
+                    .then((res)=>res.json())
+                    .then(data=>{
+                        console.log(data)
+                        displayBlogs(data);
+                    });
+
+function displayBlogs(blogs){
+    
+    const homeBlogs = document.querySelector(".recent-blogs-cont");
+    homeBlogs.innerHTML = '';
+for(let i=0;i<3;i++){
+    
+    let homeBlog = document.createElement('article');
+    homeBlog.classList.add('recent-blog');
+    homeBlog.onclick = ()=>{
+
+        let j = blogs[i]._id;
+        window.location.href = "./other pages/individual-blog.html?blogIndex="+i+"&blogId="+j;
+    }
+
+    let homeBlogImage = document.createElement('img');
+    homeBlogImage.setAttribute('src',blogs[i].image.url);
+   
+    let homeBlogMain = document.createElement('div');
+    homeBlogMain.classList.add('recent-blog-main');
+
+    let homeBlogTitle = document.createElement('h4');
+    homeBlogTitle.classList.add('recent-blog-title','linked-text');
+    let linkedTitle = document.createElement('a');
+    linkedTitle.innerText = blogs[i].title;
+    homeBlogTitle.appendChild(linkedTitle);
+
+    let homeBlogSummary = document.createElement('div');
+    homeBlogSummary.classList.add('recent-blog-summary');
+    let homeBlogSummaryBody = document.createElement('p');
+    homeBlogSummaryBody.innerText = blogs[i].body.slice(0,100);
+    homeBlogSummary.appendChild(homeBlogSummaryBody);
+
+    let homeBlogAnalytics = document.createElement('div');
+    homeBlogAnalytics.classList.add('recent-blog-analytics');
+
+    let likeAnalyticsCont = document.createElement('div');
+    likeAnalyticsCont.classList.add('analytic-cont');
+    let likeIconCont = document.createElement('p');
+    let dlikeIcon = document.createElement('i');
+    dlikeIcon.classList.add('fa-solid','fa-thumbs-up')
+    likeIconCont.textContent=blogs[i].length;
+    likeIconCont.appendChild(dlikeIcon);
+    likeAnalyticsCont.appendChild(likeIconCont);
+
+    // let commentAnalyticsCont = document.createElement('div');
+    // commentAnalyticsCont.classList.add('analytic-cont');
+    // let commentIconCont = document.createElement('p');
+    // let dCommentIcon = document.createElement('i');
+    // dCommentIcon.classList.add('fa-solid','fa-comments');
+    // commentIconCont.textContent=blogs[i].comments.length;
+    // commentIconCont.appendChild(dCommentIcon);
+    // commentAnalyticsCont.appendChild(commentIconCont);
+
+    // let dateAnalyticsCont = document.createElement('div');
+    // dateAnalyticsCont.classList.add('analytic-cont');
+    // let dateIconCont = document.createElement('p');
+    // dateIconCont.textContent=blogs[i].date.slice(0,10);
+    // dateAnalyticsCont.appendChild(dateIconCont);
+
+    // homeBlogAnalytics.appendChild(likeAnalyticsCont);
+    // homeBlogAnalytics.appendChild(commentAnalyticsCont);
+    // homeBlogAnalytics.appendChild(dateAnalyticsCont);
+
+
+    homeBlogMain.appendChild(homeBlogTitle);
+    homeBlogMain.appendChild(homeBlogSummary);
+    homeBlogMain.appendChild(homeBlogAnalytics);
+    homeBlog.appendChild(homeBlogImage);
+    homeBlog.appendChild(homeBlogMain);
+    
+
+    homeBlogs.appendChild(homeBlog);
+
+}
+}

@@ -1,77 +1,30 @@
-
-
-const menuBtn = document.querySelector("#menu-btn")
-const menuBtnIcon = document.querySelector("#menu-btn i")
-const dropDownMenu = document.querySelector(".dropdown-menu")
-
-menuBtn.onclick = function(){
-    dropDownMenu.classList.toggle("open")
-    const isOpen = dropDownMenu.classList.contains("open")
-    
-    menuBtnIcon.classList = isOpen? 'fa-solid fa-xmark': 'fa-solid fa-bars'
-    
-}
-
-
-
-let blogs = [];
-loadBlogs();
-
-function loadBlogs(){
-    let savedBlogs = localStorage.getItem('blogs');
-    blogs = savedBlogs?JSON.parse(savedBlogs):[];
-}
-
+// const loadBlogs = fetch("https://my-brand-backend-qcoe.onrender.com/blogs")
+//                     .then((res)=>res.json())
+//                     .then(data=>{
+//                         console.log(data)
+//                         displayBlogs(data);
+//                     });
 
 let urlParams = new URLSearchParams(window.location.search);
 let blogIndex = urlParams.get('blogIndex');
 let blogId = urlParams.get('blogId')
-// let login_user = urlParams.get('user');
-// let login_type = urlParams.get('type');
-
-let login_user_og = localStorage.getItem('current_user');
-let login_type_og = localStorage.getItem('current_type');
-
-
-//Login/Logout
-if(login_type_og){
-    let login_btn = document.getElementById('login-btn')
-    let login_btn2 = document.getElementById('login-btn2')
-
-    login_btn.innerText = 'Logout';
-    login_btn2.innerText = 'Logout';
-
-    login_btn.addEventListener('click',()=>{
-        localStorage.removeItem('current_user');
-        localStorage.removeItem('current_type');
-
-        window.location.href = 'individual-blog.html?blogIndex='+blogIndex;
-    })
-    login_btn2.addEventListener('click',()=>{
-        localStorage.removeItem('current_user');
-        localStorage.removeItem('current_type');
-
-        window.location.href = 'individual-blog.html?blogIndex='+blogIndex;
-    })
-}
-
-
-
-
 
 const commentSpaceCont = document.querySelector('.comment-space-cont');
 const commentArea = document.getElementById('comment-input');
 const commentBtn = document.getElementById('comment-send');
+let cBlog;
+const loadBlog = fetch(`https://my-brand-backend-qcoe.onrender.com/blogs/${blogId}`)
+                    .then((res)=>res.json())
+                    .then(data=>{
+                        console.log(data.data)
+                        cBlog = data.data
+                        displayBlog(data.data);
+                        
+});
 
-
-displayBlog(blogIndex);
-displayComments(blogIndex);
-displayAnalytics(blogIndex);
-
-
-function displayBlog(i){
+function displayBlog(blog){
     
-    let blog = blogs[i];
+    
     const blogMain = document.querySelector('.blog-main');
     blogMain.innerHTML = '';
     
@@ -79,11 +32,7 @@ function displayBlog(i){
     blogMainImageCont.classList.add('blog-main-img');
     let blogMainImage = document.createElement('img');
 
-    if(blog.image){
-        blogMainImage.setAttribute('src',blog.image);
-    }else{
-        blogMainImage.setAttribute('src','./images/images_portraits/portrait.png');
-    }
+    blogMainImage.setAttribute('src',blog.image.url);
     blogMainImageCont.appendChild(blogMainImage);
 
     const blogMainBody = document.createElement('div');
@@ -101,41 +50,62 @@ function displayBlog(i){
     blogMain.appendChild(blogMainImageCont);
     blogMain.appendChild(blogMainBody);
 
-
-    
-
-
     //Commenting section
     
     
 
     commentBtn.addEventListener('click',()=>{
-        window.location.reload();
-        addComment(blogIndex);
+        // window.location.reload();
+        addComment(blogId);
         
         // displayComments();
     }); 
 
-    function addComment(index){
+    function addComment(id){
         let commentAreaValue = commentArea.value.trim();
         if(commentAreaValue===''){
             setError("Comment can't be empty");
         }else{
-            setSuccess();
+            
             let newComment ={
-                cName:login_user_og?login_user_og:'Anonymous User',
+                cName:'Anonymous User',
                 cBody:commentAreaValue,
                 date:new Date()
             }
+            sendComment(id,newComment)
             
-            blogs[index].comments.unshift(newComment);
-            saveBlogs();
+            
             
         }
+    }  
+}
 
+function sendComment(id,comment){
+    const url = `https://my-brand-backend-qcoe.onrender.com/blogs/${id}/comments`
+    const data = comment
+    const options = {
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(data)
     }
 
+    fetch(url,options)
+    .then(response=>{
+        console.log(response);
+        if(response.status!==201){
+            setError("Not logged in")
+        }else{
+            setSuccess("Comment sent")
+        }
+        return response.json()
+    })
+    .then((data)=>{
+        console.log(data)
+    })
 }
+
 
 
 const setError = (m)=>{
@@ -150,15 +120,20 @@ const setSuccess = ()=>{
     commentArea.value = '';
 }
 
-function saveBlogs() {                                            //saveblgs to local storage
-    localStorage.setItem('blogs', JSON.stringify(blogs));
-}
 
+const loadComments= fetch(`https://my-brand-backend-qcoe.onrender.com/blogs/${blogId}/comments`)
+                    .then((res)=>res.json())
+                    .then(data=>{
+                        console.log(data.data);
+                        allComments = data.data;
+                        displayComments(data.data);
+                        displayAnalytics(cBlog);
+                    }
+)
 
-function displayComments(i){
-    let comments = blogs[i].comments
-
-
+function displayComments(comments){
+    allComments = comments
+    
     const commentsCont = document.querySelector('.comments-cont');
     commentsCont.innerHTML = '';
 
@@ -176,22 +151,22 @@ function displayComments(i){
         pPic.innerText = 'AU';
         pPicCont.appendChild(pPic);
         let cName = document.createElement('p');
-        cName.innerText = comment.cName;
+        cName.innerText = comment.commenter;
     
         cnameCont.appendChild(pPicCont);
         cnameCont.appendChild(cName);
     
-        const dateCont = document.createElement('p');
-        dateCont.innerText = comment.date.slice(0,10);
+        // const dateCont = document.createElement('p');
+        // dateCont.innerText = comment.date.slice(0,10);
     
         commentHeader.appendChild(cnameCont);
-        commentHeader.appendChild(dateCont);
+        // commentHeader.appendChild(dateCont);
     
         const commentBody = document.createElement('div');
         commentBody.classList.add('comment-body');
         let commentBodyText = document.createElement('p');
         commentBody.appendChild(commentBodyText);
-        commentBody.innerText = comment.cBody;
+        commentBody.innerText = comment.commentBody;
 
     
         commentItem.appendChild(commentHeader);
@@ -203,8 +178,8 @@ function displayComments(i){
 
 }
 
-function displayAnalytics(i){
-
+function displayAnalytics(blog){
+    let bId = blog._id
     const analyticsCont = document.querySelector('.comment-analytics');
     analyticsCont.innerHTML = '';
 
@@ -212,37 +187,49 @@ function displayAnalytics(i){
     likeCont.classList.add('analytic-cont');
     let likeBtnCont = document.createElement('p');
     likeBtnCont.onclick = function (){
-        blogs[blogIndex].likeCount++;
-        saveBlogs();
-        window.location.reload();
+        const url = `https://my-brand-backend-qcoe.onrender.com/blogs/${bId}/like`
+        const options = {
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            }
+        }
+
+        fetch(url,options)
+        .then(response=>{
+            console.log(response);
+            return response.json()
+        })
+        .then((data)=>{
+            console.log(data)
+        })
+            // window.location.reload();
     }
-    likeBtnCont.innerText  = blogs[i].likeCount;
+
+    likeBtnCont.innerText  = blog.likes.length;
     const likeBtn = document.createElement('i');
     likeBtn.classList.add("fa-solid","fa-thumbs-up");
-    likeBtnCont.addEventListener('click',()=>{
-        window.location.reload();
-        blogs[blogIndex].likeCount++;
-        window.location.reload();
-        saveBlogs();
-    })
     likeBtnCont.appendChild(likeBtn);
     likeCont.appendChild(likeBtnCont);
 
     const commentCont = document.createElement('div');
     commentCont.classList.add('analytic-cont');
     let commentBtnCont = document.createElement('p');
-    commentBtnCont.innerText = blogs[i].comments.length;
+    commentBtnCont.innerText = allComments.length;
+    
     const commentBtn = document.createElement('i');
     commentBtn.classList.add("fa-solid","fa-comment");
     commentBtnCont.appendChild(commentBtn);
     commentCont.appendChild(commentBtnCont);
 
-    const blogDateCont = document.createElement('div');
-    const blogDate = document.createElement('p');
-    blogDate.innerText = '12/12/24';
+    // const blogDateCont = document.createElement('div');
+    // const blogDate = document.createElement('p');
+    // blogDate.innerText = '12/12/24';
 
     analyticsCont.appendChild(likeCont);
     analyticsCont.appendChild(commentCont);
-    analyticsCont.appendChild(blogDateCont);
-
+    // analyticsCont.appendChild(blogDateCont);
 }
+
+
+

@@ -74,6 +74,14 @@ if(login_type_og){
 
 //Message form validation 
 
+
+
+
+
+
+
+
+
 let sentMessages = [];
 loadMessages();
 
